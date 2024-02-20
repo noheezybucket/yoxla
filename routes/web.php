@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('auth')->name('auth.')->group(function () {
+    Route::view('login', 'auth.login')->name('login');
+});
