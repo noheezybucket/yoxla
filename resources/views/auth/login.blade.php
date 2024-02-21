@@ -39,7 +39,7 @@
 
         <div>
             <p class="mt-2">Vous n'avez pas de compte?
-                <a href="" class="link">Inscrivez-vous facilement ici</a>
+                <a href="{{ route('auth.register') }}" class="link">Inscrivez-vous facilement ici</a>
             </p>
         </div>
     </form>

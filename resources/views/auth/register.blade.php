@@ -1,5 +1,5 @@
 @extends('auth')
-@section('title', 'Connexion')
+@section('title', 'Inscription')
 
 @section('auth-img')
     <img src="{{ asset('assets/car.jpg') }}" class="w-full h-[100%]  object-cover rounded-2xl" alt="Vote">
@@ -7,13 +7,14 @@
 
 @section('auth-form')
     <form id="login-form" class="p-3" style="max-width: 500px; width:100%">
-        <h1 class="text-center text-2xl font-bold text-third">yoxlā</h1>
-        <hr class="my-2 w-1/2 mx-auto">
         <div class="flex items-center justify-center">
-            {{-- <x-far-circle-user class="icon" /> --}}
+            {{-- <x-fas-map-pin class="icon" /> --}}
+            <h1 class="text-center text-2xl font-bold text-third">yoxlā</h1>
 
-            <span class="text-3xl">Connexion</span>
         </div>
+        <hr class="my-2 w-1/2 mx-auto">
+
+        <h2 class="text-3xl text-center">Inscription</h2>
         <div class="my-2">
             <p><span id="error" class="text-danger"></span></p>
         </div>
@@ -25,11 +26,9 @@
         <div class="form-div">
             <label for="password" class="form-label">Mot de passe</label>
             <input type="password" id="password" name="password" class="form-input">
-            <a href="" class="link">Mot de passe
-                oublié?</a>
         </div>
         <div class=" mb-4">
-            <button type="button" class="btn-primary" id="login-btn">Se connecter
+            <button type="button" class="btn-primary" id="login-btn">S'inscrire
                 <x-fas-arrow-right-to-bracket class="icon" />
 
             </button>
@@ -37,8 +36,8 @@
 
 
         <div>
-            <p class="mt-2">Vous n'avez pas de compte?
-                <a href="" class="link">Inscrivez-vous facilement ici</a>
+            <p class="mt-2">Vous avez déjà un compte?
+                <a href="{{ route('auth.login') }}" class="link">Connectez-vous facilement ici</a>
             </p>
         </div>
     </form>
