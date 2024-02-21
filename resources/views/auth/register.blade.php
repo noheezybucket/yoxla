@@ -7,14 +7,13 @@
 
 @section('auth-form')
     <form id="login-form" class="p-3" style="max-width: 500px; width:100%">
-        <div class="flex items-center justify-center">
-            {{-- <x-fas-map-pin class="icon" /> --}}
-            <h1 class="text-center text-2xl font-bold text-third">yoxlā</h1>
-
-        </div>
+        <h1 class="text-center text-2xl font-bold text-third">yoxlā</h1>
         <hr class="my-2 w-1/2 mx-auto">
+        <div class="flex items-center justify-center">
+            {{-- <x-far-circle-user class="icon" /> --}}
 
-        <h2 class="text-3xl text-center">Connexion</h2>
+            <span class="text-3xl">Connexion</span>
+        </div>
         <div class="my-2">
             <p><span id="error" class="text-danger"></span></p>
         </div>
