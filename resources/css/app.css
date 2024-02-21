@@ -11,4 +11,30 @@
     margin: 0;
     padding: 0;
     font-family: "Quicksand";
+    transition: ease-in-out 0.1s;
+    /* @apply text-third; */
+}
+
+.form-div {
+    @apply mb-2 flex flex-col;
+}
+
+.form-label {
+    @apply font-bold;
+}
+
+.form-input {
+    @apply border rounded-2xl p-3;
+}
+
+.btn-primary {
+    @apply bg-first hover:bg-fourth hover:text-third w-full border rounded-2xl text-white flex items-center justify-center gap-3 p-3;
+}
+
+.link {
+    @apply text-first hover:text-accent1;
+}
+
+.icon {
+    @apply w-6 mr-3;
 }
