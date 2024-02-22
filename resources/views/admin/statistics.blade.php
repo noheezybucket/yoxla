@@ -1,5 +1,5 @@
 @extends('base')
-@section('title', 'Accueil')
+@section('title', 'Statistiques')
 
 @section('content')
     <div class="mx-10">

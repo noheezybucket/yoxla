@@ -11,7 +11,6 @@
     margin: 0;
     padding: 0;
     font-family: "Quicksand";
-    transition: ease-in-out 0.1s;
     /* @apply text-third; */
 }
 
