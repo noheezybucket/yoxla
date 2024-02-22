@@ -25,6 +25,7 @@ return new class extends Migration
             $table->date('ending_date');
             $table->enum('rent_type', ['journaliere', 'horaire']);
             $table->enum('payment_method', ['mobile', 'cash']);
+            $table->enum('status', ['paid', 'pending']);
             $table->timestamps();
         });
     }
