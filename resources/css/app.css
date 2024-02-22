@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* general */
 *,
 *::after,
 *::before {
@@ -14,20 +15,12 @@
     /* @apply text-third; */
 }
 
-.form-div {
-    @apply mb-2 flex flex-col;
-}
-
-.form-label {
-    @apply font-bold;
-}
-
-.form-input {
-    @apply border rounded-2xl p-3;
-}
-
 .btn-primary {
     @apply bg-first hover:bg-fourth hover:text-third w-full border rounded-2xl text-white flex items-center justify-center gap-3 p-3;
+}
+
+.btn-secondary {
+    @apply bg-third hover:bg-fourth hover:text-third border rounded-2xl text-white flex items-center justify-center gap-3 p-2;
 }
 
 .link {
@@ -35,5 +28,79 @@
 }
 
 .icon {
-    @apply w-6 mr-3;
+    @apply w-6;
+}
+
+/* form */
+.form-div {
+    @apply mb-2 flex flex-col;
+}
+
+.form-div-row {
+    @apply mb-2 flex justify-evenly gap-4;
+}
+
+.form-label {
+    @apply font-normal;
+}
+
+.form-input {
+    @apply border rounded-2xl p-3;
+}
+
+.field {
+    @apply border rounded-2xl p-4 border-third;
+}
+
+.field-legend {
+    @apply font-bold;
+}
+
+/* vehicle */
+.vehicle-card {
+    @apply bg-second rounded-2xl p-4;
+}
+
+.label {
+    @apply px-2 py-1 rounded-2xl text-white;
+}
+.available {
+    @apply bg-accent2;
+}
+
+.unavailable {
+    @apply bg-accent1;
+}
+
+.breakdown {
+    @apply bg-red-500;
+}
+
+.vehicle-brand {
+    @apply text-2xl;
+}
+
+.vehicle-details {
+    @apply font-bold text-xl;
+}
+
+/* custom scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    @apply bg-second;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    @apply bg-third rounded-xl;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

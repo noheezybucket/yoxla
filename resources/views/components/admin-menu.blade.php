@@ -11,7 +11,7 @@
 
         {{-- vehicles --}}
         <a href="{{ route('admin.vehicles') }}"
-            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/vehicles') ? 'bg-third text-white ' : 'text-third dark:text-white hover:bg-third' }}">
+            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/vehicles*') ? 'bg-third text-white ' : 'text-third dark:text-white hover:bg-third' }}">
             <svg class="w-8 h-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

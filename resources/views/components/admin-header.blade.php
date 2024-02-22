@@ -15,9 +15,9 @@
         </div>
     </div>
 
-    <div class="flex items-center">
+    <div class="flex items-center gap-1">
         {{-- <span>Dakar,Sénégal</span> --}}
-        <div><x-far-user class="icon bg-third rounded-full text-white !important p-1" /></div>
+        <div><x-far-user class="icon " /></div>
         <div class="flex flex-col">
             <span class="font-semibold">Mouhamad Gueye</span>
             <span class="font-light text-sm">Dakar, Senegal</span>
