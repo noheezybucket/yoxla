@@ -16,11 +16,11 @@
 }
 
 .btn-primary {
-    @apply bg-third hover:bg-fourth hover:text-third w-full border rounded-2xl text-white flex items-center justify-center gap-3 p-3;
+    @apply bg-third hover:bg-fourth hover:text-third w-full border hover:border-third  rounded-2xl text-white flex items-center justify-center gap-3 p-3;
 }
 
 .btn-secondary {
-    @apply bg-third hover:bg-fourth hover:text-third border rounded-2xl text-white flex items-center justify-center gap-3 p-2;
+    @apply bg-third hover:bg-fourth hover:text-third border hover:border-third rounded-2xl text-white flex items-center justify-center gap-3 p-2;
 }
 
 .link {
@@ -29,6 +29,14 @@
 
 .icon {
     @apply w-6;
+}
+
+.error {
+    @apply bg-red-200 border border-red-600 text-red-600 rounded-2xl p-2;
+}
+
+.success {
+    @apply bg-green-200 border border-green-600 text-green-600 rounded-2xl p-2;
 }
 
 /* form */
@@ -41,11 +49,11 @@
 }
 
 .form-label {
-    @apply font-normal;
+    @apply font-semibold;
 }
 
 .form-input {
-    @apply border rounded-2xl p-3;
+    @apply border border-third rounded-2xl p-3;
 }
 
 .field {

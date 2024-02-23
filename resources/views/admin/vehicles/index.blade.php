@@ -8,8 +8,12 @@
         <div class="flex gap-5">
             @include('components.admin-menu')
             <div class="flex gap-5  w-full h-[80vh]">
-                <div class="w-1/3 border p-1">
-                    <p class="font-bold text-2xl">Filter</p>
+                <div class="w-1/3 border p-1 rounded-2xl">
+                    <div class="flex">
+                        <x-fas-filter class="icon" />
+                        <p class="font-bold text-2xl">Filter</p>
+
+                    </div>
                 </div>
                 <div class="w-2/3 p-2 space-y-4 overflow-y-scroll">
                     <div class="flex justify-between items-center">
@@ -18,21 +22,31 @@
                                 class="icon mr-0" /></a>
                     </div>
                     <div class="grid grid-cols-2 gap-3">
-                        @for ($i = 0; $i < 4; $i++)
-                            <div class="vehicle-card">
+                        @foreach ($vehicles as $vehicle)
+                            <a href="" class="vehicle-card">
                                 <div class="space-y-3">
-                                    <span class="available label">Disponible</span>
-                                    <span class="unavailable label">En location</span>
-                                    <span class="breakdown label">En panne</span>
+                                    @if ($vehicle->status == 'breakdown')
+                                        <span class="breakdown label">En panne</span>
+                                    @endif
+
+                                    @if ($vehicle->status == 'available')
+                                        <span class="available label">Disponible</span>
+                                    @endif
+
+                                    @if ($vehicle->status == 'unavailable')
+                                        <span class="unavailable label">En location</span>
+                                    @endif
+
                                 </div>
-                                <img src="{{ asset('assets/bmw.png') }}" alt="" class="">
-                                <h2 class="vehicle-brand">BMW</h2>
+
+                                <img src="{{ $vehicle->photos }}" alt="" class="">
+                                <h2 class="vehicle-brand">{{ $vehicle->brand }}</h2>
                                 <div class="flex justify-between">
-                                    <h2 class="vehicle-details">X3 Hybrid</h2>
-                                    <h2 class="vehicle-details">25.000 XOF/jour </h2>
+                                    <h2 class="vehicle-details">{{ $vehicle->model }}</h2>
+                                    <h2 class="vehicle-details">{{ $vehicle->daily_price }} XOF/jour </h2>
                                 </div>
-                            </div>
-                        @endfor
+                            </a>
+                        @endforeach
 
 
                     </div>

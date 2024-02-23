@@ -10,10 +10,18 @@
             <div class="flex flex-col gap-5  w-full h-[80vh] overflow-y-scroll">
                 <div class="flex justify-between items-center w-3/4 mx-auto">
                     <h1 class="font-bold text-2xl">Ajout d'un véhicule</h1>
-                    <a href="{{ route('admin.create-vehicle') }}" class="btn-secondary">Retour vers les véhicules <x-fas-plus
+                    <a href="{{ route('admin.vehicles') }}" class="btn-secondary">Retour vers les véhicules <x-fas-plus
                             class="icon mr-0" /></a>
                 </div>
-                <form action="" class="w-3/4 mx-auto space-y-5">
+
+                <form action="{{ route('admin.create-vehicle-treatment') }}" method="POST" class="w-3/4 mx-auto space-y-5">
+                    @if (session('status'))
+                        <div class="success">{{ session('status') }}</div>
+                    @endif
+                    @foreach ($errors->all() as $error)
+                        <div class="error">{{ $error }}</div>
+                    @endforeach
+                    @csrf
                     {{-- basic car info --}}
                     <fieldset class="field">
                         <legend class="field-legend">Informations générales</legend>
@@ -41,8 +49,8 @@
                             <div class="form-div-row">
 
                                 <div class="form-div w-full">
-                                    <label for="purchase-date" class="form-label">Date d'achat du véhicule</label>
-                                    <input type="date" id="purchase-date" name="purchase-date" class="form-input">
+                                    <label for="purchase_date" class="form-label">Date d'achat du véhicule</label>
+                                    <input type="date" id="purchase_date" name="purchase_date" class="form-input">
                                 </div>
 
                                 <div class="form-div w-full">
@@ -71,12 +79,14 @@
 
                                 <div class="flex items-center gap-5">
                                     <div>
-                                        <input type="radio" id="gearbox" name="gearbox" class="form-input">
+                                        <input type="radio" id="gearbox" name="gearbox" class="form-input"
+                                            value="auto">
                                         <label for="gearbox" class="form-label">Automatique</label>
                                     </div>
 
                                     <div>
-                                        <input type="radio" id="gearbox" name="gearbox" class="form-input">
+                                        <input type="radio" id="gearbox" name="gearbox" class="form-input"
+                                            value="manual">
                                         <label for="gearbox" class="form-label">Manuelle</label>
                                     </div>
                                 </div>
@@ -91,16 +101,30 @@
                         <div class="form-div-row">
 
                             <div class="form-div w-full">
-                                <label for="daily-price" class="form-label">Tarif journalier</label>
-                                <input type="number" id="daily-price" name="daily-price" class="form-input">
+                                <label for="daily_price" class="form-label">Tarif journalier</label>
+                                <input type="number" id="daily_price" name="daily_price" class="form-input">
                             </div>
                             <div class="form-div w-full">
-                                <label for="hourly-price" class="form-label">Tarif horaire</label>
-                                <input type="text" id="hourly-price" name="hourly-price" class="form-input">
+                                <label for="hourly_price" class="form-label">Tarif horaire</label>
+                                <input type="text" id="hourly_price" name="hourly_price" class="form-input">
                             </div>
                         </div>
                     </fieldset>
 
+                    {{-- photos --}}
+                    <fieldset class="field">
+                        <legend class="field-legend">Photos</legend>
+                        <div class="form-div-row">
+
+                            <div class="form-div w-full">
+                                <label for="photos" class="form-label">URL Photos</label>
+                                <input type="text" id="photos" name="photos" class="form-input">
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="btn-primary">Enregistrer <x-fas-plus class="icon" /></button>
 
                 </form>
             </div>

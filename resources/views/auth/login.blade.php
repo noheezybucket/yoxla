@@ -2,7 +2,7 @@
 @section('title', 'Connexion')
 
 @section('auth-img')
-    <img src="{{ asset('assets/bmw.png') }}" class="w-full h-[100%]  object-contain rounded-2xl" alt="Vote">
+    <img src="{{ asset('assets/urus.avif') }}" class="w-full h-[100%]  object-contain rounded-2xl" alt="Vote">
 @endsection
 
 @section('auth-form')
@@ -30,10 +30,10 @@
                 oublié?</a>
         </div>
         <div class=" mb-4">
-            <button type="button" class="btn-primary" id="login-btn">Se connecter
+            <a href="{{ route('admin.vehicles') }}" class="btn-primary" id="login-btn">Se connecter
                 <x-fas-arrow-right-to-bracket class="icon" />
 
-            </button>
+            </a>
         </div>
 
 

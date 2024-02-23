@@ -29,6 +29,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     //vehicles
     Route::get('vehicles', [VehicleController::class, 'index'])->name('vehicles');
     Route::get('vehicles/create', [VehicleController::class, 'create'])->name('create-vehicle');
+    Route::post('vehicles/create', [VehicleController::class, 'store'])->name('create-vehicle-treatment');
     // 
     Route::view('drivers', 'admin.drivers')->name('drivers');
     Route::view('statistics', 'admin.statistics')->name('statistics');
