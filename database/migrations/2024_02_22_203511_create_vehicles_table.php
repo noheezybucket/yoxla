@@ -24,9 +24,9 @@ return new class extends Migration
             $table->bigInteger('actual_mileage');
             $table->bigInteger('registration');
             $table->json('photos');
-            $table->enum('gearbox', ['auto', 'manuel']);
-            $table->enum('type', ['bus', 'camion', 'taxi']);
-            $table->enum('status', ['panne', 'disponible', 'location']);
+            $table->enum('gearbox', ['auto', 'manual']);
+            $table->enum('type', ['bus', 'truck', 'berline']);
+            $table->enum('status', ['breakdown', 'available', 'unavailable']);
             $table->timestamps();
         });
     }

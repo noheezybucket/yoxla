@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('ending_point');
             $table->date('starting_date');
             $table->date('ending_date');
-            $table->enum('rent_type', ['journaliere', 'horaire']);
+            $table->enum('rent_type', ['daily', 'hourly']);
             $table->enum('payment_method', ['mobile', 'cash']);
             $table->enum('status', ['paid', 'pending']);
             $table->timestamps();

@@ -2,7 +2,7 @@
 @section('title', 'Connexion')
 
 @section('auth-img')
-    <img src="{{ asset('assets/car.jpg') }}" class="w-full h-[100%]  object-cover rounded-2xl" alt="Vote">
+    <img src="{{ asset('assets/bmw.png') }}" class="w-full h-[100%]  object-contain rounded-2xl" alt="Vote">
 @endsection
 
 @section('auth-form')

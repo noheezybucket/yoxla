@@ -16,7 +16,7 @@
 }
 
 .btn-primary {
-    @apply bg-first hover:bg-fourth hover:text-third w-full border rounded-2xl text-white flex items-center justify-center gap-3 p-3;
+    @apply bg-third hover:bg-fourth hover:text-third w-full border rounded-2xl text-white flex items-center justify-center gap-3 p-3;
 }
 
 .btn-secondary {
@@ -24,7 +24,7 @@
 }
 
 .link {
-    @apply text-first hover:text-accent1;
+    @apply text-third hover:text-accent1;
 }
 
 .icon {
@@ -92,7 +92,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-    @apply bg-second;
+    @apply bg-second rounded-xl;
 }
 
 /* Handle */

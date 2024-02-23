@@ -35,32 +35,50 @@
                                 <input type="number" id="seats" name="seats" class="form-input">
                             </div>
                         </div>
-                        <div class="form-div">
 
-                        </div>
                         <div>
                             {{-- date --}}
-
-                            <div class="form-div w-full">
-                                <label for="purchase-date" class="form-label">Date d'achat du véhicule</label>
-                                <input type="date" id="purchase-date" name="purchase-date" class="form-input">
-                            </div>
-
                             <div class="form-div-row">
 
-                                {{-- immatriculation --}}
-
                                 <div class="form-div w-full">
-                                    <label for="registration" class="form-label">immatriculation</label>
-                                    <input type="number" id="registration" name="registration" class="form-input">
+                                    <label for="purchase-date" class="form-label">Date d'achat du véhicule</label>
+                                    <input type="date" id="purchase-date" name="purchase-date" class="form-input">
                                 </div>
 
-
-                                {{-- kilométrage --}}
-
                                 <div class="form-div w-full">
-                                    <label for="mileage" class="form-label">Kilométrage</label>
+                                    <label for="mileage" class="form-label">Kilométrage à l'achat</label>
                                     <input type="number" id="mileage" name="mileage" class="form-input">
+                                </div>
+                            </div>
+
+                            <div class="form-div w-full">
+                                <label for="registration" class="form-label">Immatriculation</label>
+                                <input type="number" id="registration" name="registration" class="form-input">
+                            </div>
+
+                            <div class="form-div w-full">
+                                <label for="type" class="input-label">Type de véhicule</label>
+                                <select name="type" id="type" class="form-input">
+                                    <option value="bus">Bus</option>
+                                    <option value="truck">Camion</option>
+                                    <option value="berline">Berline</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-div">
+                            <div class="form-div">
+
+                                <div class="flex items-center gap-5">
+                                    <div>
+                                        <input type="radio" id="gearbox" name="gearbox" class="form-input">
+                                        <label for="gearbox" class="form-label">Automatique</label>
+                                    </div>
+
+                                    <div>
+                                        <input type="radio" id="gearbox" name="gearbox" class="form-input">
+                                        <label for="gearbox" class="form-label">Manuelle</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

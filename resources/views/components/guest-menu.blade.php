@@ -6,8 +6,7 @@
 
         <div class="flex gap-5">
 
-            <a href="{{ route('auth.login') }}"
-                class="inline-flex items-center bg-first text-white border-0 py-3 px-3 focus:outline-none hover:bg-third rounded-2xl text-base mt-4 md:mt-0">Se
+            <a href="{{ route('auth.login') }}" class="btn-secondary">Se
                 connecter
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     class="w-4 h-4 ml-1" viewBox="0 0 24 24">
