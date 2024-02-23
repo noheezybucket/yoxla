@@ -9,8 +9,10 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<body class="overflow-hidden">
     @yield('content')
+
+
 </body>
 
 </html>

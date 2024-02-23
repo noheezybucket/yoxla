@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger('license_number');
             $table->bigInteger('phonenumber');
             $table->enum('license_category', ['A', 'B', 'AB']);
-            $table->enum('status', ['disponible', 'indisponible']);
+            $table->enum('status', ['available', 'unavailable']);
             $table->date('license_emission_date');
             $table->date('license_expiration_date');
             $table->timestamps();

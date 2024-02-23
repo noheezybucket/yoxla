@@ -16,7 +16,7 @@
             <div class="spinner-border text-primary" role="status">
             </div>
         </div>
-        <div class="flex">
+        <div class="flex flex-row-reverse">
             <div class="w-1/2 p-10 h-[100vh]">
                 {{-- <div class="position-absolute top-0 w-full h-[100vh] bg-accent1 bg-opacity-5"></div> --}}
                 @yield('auth-img')

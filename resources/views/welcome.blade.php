@@ -4,14 +4,14 @@
 @section('content')
     @include('components.guest-menu')
     <section class="text-gray-600 bg-white body-font">
-        <div class="container mx-auto flex px-5  md:flex-row flex-col items-center">
+        <div class="container mx-auto flex px-5  py-24 md:flex-row-reverse flex-col items-center">
             <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-                <img class="object-cover object-center rounded" alt="hero" src="{{ asset('assets/car-hero.png') }}">
+                <img class="object-cover object-center rounded" alt="hero" src="{{ asset('assets/bmw.png') }}">
             </div>
             <div
                 class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-                <h1 class="text-4xl font-bold text-third">Gérez votre <span class="text-first">parc automobile</span> et vos
-                    locations en toute <span class="text-accent1"> simplicité.</span>
+                <h1 class="text-4xl font-bold text-third">Gérez votre <span class="text-third">parc automobile</span> et vos
+                    locations en toute <span class="text-third"> simplicité.</span>
                 </h1>
                 <p class="my-4 text-lg leading-relaxed">
                     Yoxlā est une entreprise qui propose des services de location de tout type de

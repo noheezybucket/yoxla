@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,13 +23,19 @@ Route::prefix('auth')->name('auth.')->group(function () {
     Route::view('register', 'auth.register')->name('register');
 });
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::view('home', 'admin.home')->name('home');
-});
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::view('home', 'admin.home')->name('home');
-    Route::view('vehicles', 'admin.vehicles')->name('vehicles');
+    //vehicles
+    Route::get('vehicles', [VehicleController::class, 'index'])->name('vehicles');
+    Route::get('vehicles/create', [VehicleController::class, 'create'])->name('create-vehicle');
+    Route::post('vehicles/create', [VehicleController::class, 'store'])->name('create-vehicle-treatment');
+    Route::get('vehicles/show/{id}', [VehicleController::class, 'show'])->name('show-vehicle');
+    Route::get('vehicles/update/{id}', [VehicleController::class, 'update_form'])->name('update-vehicle');
+    Route::put('vehicles/update/{id}', [VehicleController::class, 'update'])->name('update-vehicle-treatment');
+    Route::get('vehicles/delete/{id}', [VehicleController::class, 'delete'])->name('delete-vehicle');
+    Route::delete('vehicles/delete/{id}', [VehicleController::class, 'destroy'])->name('delete-vehicle-treatment');
+    // 
     Route::view('drivers', 'admin.drivers')->name('drivers');
     Route::view('statistics', 'admin.statistics')->name('statistics');
     Route::view('rental', 'admin.rental')->name('rental');

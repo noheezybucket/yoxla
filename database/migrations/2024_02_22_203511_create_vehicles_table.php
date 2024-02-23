@@ -21,12 +21,12 @@ return new class extends Migration
             $table->integer('hourly_price');
             $table->dateTime('purchase_date');
             $table->bigInteger('origin_mileage');
-            $table->bigInteger('actual_mileage');
-            $table->bigInteger('registration');
+            $table->bigInteger('actual_mileage')->nullable();
+            $table->bigInteger('registration')->unique();
             $table->json('photos');
-            $table->enum('gearbox', ['auto', 'manuel']);
-            $table->enum('type', ['bus', 'camion', 'taxi']);
-            $table->enum('status', ['panne', 'disponible', 'location']);
+            $table->enum('gearbox', ['auto', 'manual']);
+            $table->enum('type', ['bus', 'truck', 'berline']);
+            $table->enum('status', ['available', 'breakdown', 'unavailable']);
             $table->timestamps();
         });
     }
