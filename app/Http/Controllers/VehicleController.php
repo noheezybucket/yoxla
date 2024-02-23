@@ -53,4 +53,54 @@ class VehicleController extends Controller
 
         return redirect('admin/vehicles/create')->with('status', 'Véhicule ajouté avec succès');
     }
+
+    function show($id)
+    {
+        $vehicle = Vehicle::find($id);
+        return view("admin.vehicles.show", compact("vehicle"));
+    }
+
+    function update_form($id)
+    {
+        $vehicle = Vehicle::find($id);
+        return view('admin.vehicles.update', compact('vehicle'));
+    }
+
+    function update(Request $request, $id)
+    {
+        $vehicle = Vehicle::find($id);
+
+        $request->validate([
+            'brand' => 'required',
+            'model' => 'required',
+            'color' => 'required',
+            'seats' => 'required',
+            'purchase_date' => 'required',
+            'origin_mileage' => 'required',
+            'registration' => 'required',
+            'type' => 'required',
+            'gearbox' => 'required',
+            'daily_price' => 'required',
+            'hourly_price' => 'required',
+            'photos' => 'required'
+        ]);
+
+        $vehicle->update($request->all());
+
+        return redirect('admin/vehicles/update/' . $id)->with('status', 'Les informations du véhicule ont été modifiés avec succès');
+    }
+
+    function delete($id)
+    {
+
+        return view('admin.vehicles.delete', compact('id'));
+    }
+
+    function destroy($id)
+    {
+        $vehicle = Vehicle::find($id);
+        $vehicle->delete();
+
+        return redirect('admin/vehicles')->with('status', 'Véhicule supprimé avec succès');
+    }
 }

@@ -10,9 +10,7 @@ class Vehicle extends Model
     use HasFactory;
     protected $table = 'vehicles';
 
-    protected $guarded = [
-        'id', 'created_at'
-    ];
+    protected $guarded = [];
 
     protected $casts = [
         'photos' => 'array'

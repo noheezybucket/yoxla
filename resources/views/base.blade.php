@@ -11,6 +11,8 @@
 
 <body class="overflow-hidden">
     @yield('content')
+
+
 </body>
 
 </html>

@@ -23,19 +23,9 @@
                     </div>
                     <div class="grid grid-cols-2 gap-3">
                         @foreach ($vehicles as $vehicle)
-                            <a href="" class="vehicle-card">
+                            <a href="{{ url('admin/vehicles/show/' . $vehicle->id) }}" class="vehicle-card">
                                 <div class="space-y-3">
-                                    @if ($vehicle->status == 'breakdown')
-                                        <span class="breakdown label">En panne</span>
-                                    @endif
-
-                                    @if ($vehicle->status == 'available')
-                                        <span class="available label">Disponible</span>
-                                    @endif
-
-                                    @if ($vehicle->status == 'unavailable')
-                                        <span class="unavailable label">En location</span>
-                                    @endif
+                                    @include('components.label-status')
 
                                 </div>
 
