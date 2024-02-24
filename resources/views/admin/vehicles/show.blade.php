@@ -12,7 +12,8 @@
                 <div class=" w-full p-2 space-y-3">
                     <div class="flex justify-between">
 
-                        <a href="{{ route('admin.vehicles') }}" class="font-bold text-xl flex items-center">
+                        <a wire:navigate.hover href="{{ route('admin.vehicles') }}"
+                            class="font-bold text-xl flex items-center">
                             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -29,7 +30,8 @@
 
                                 </div>
                                 <div class="flex gap-2">
-                                    <a href="{{ route('admin.delete-vehicle', ['id' => $vehicle->id]) }}">
+                                    <a wire:navigate.hover
+                                        href="{{ route('admin.delete-vehicle', ['id' => $vehicle->id]) }}">
                                         <svg class="w-8 h-8 bg-red-600 text-white p-1 rounded-lg" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -37,7 +39,8 @@
                                                 d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
                                         </svg>
                                     </a>
-                                    <a href="{{ route('admin.update-vehicle', ['id' => $vehicle->id]) }}">
+                                    <a wire:navigate.hover
+                                        href="{{ route('admin.update-vehicle', ['id' => $vehicle->id]) }}">
                                         <svg class="w-8 h-8 bg-yellow-500  text-white p-1 rounded-lg" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"

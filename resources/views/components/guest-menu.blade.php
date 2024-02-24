@@ -6,7 +6,7 @@
 
         <div class="flex gap-5">
 
-            <a href="{{ route('auth.login') }}" class="btn-secondary">Se
+            <a wire:navigate.hover href="{{ route('auth.login') }}" class="btn-secondary">Se
                 connecter
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     class="w-4 h-4 ml-1" viewBox="0 0 24 24">

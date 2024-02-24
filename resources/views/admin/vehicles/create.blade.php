@@ -10,7 +10,7 @@
             <div class="flex flex-col gap-5  w-full h-[80vh] overflow-y-scroll">
                 <div class="flex justify-between items-center w-3/4 mx-auto">
                     <h1 class="font-bold text-2xl">Ajout d'un véhicule</h1>
-                    <a href="{{ route('admin.vehicles') }}" class="btn-secondary">Retour vers les véhicules <x-fas-plus
+                    <a wire:navigate.hover href="{{ route('admin.vehicles') }}" class="btn-secondary">Retour vers les véhicules <x-fas-plus
                             class="icon mr-0" /></a>
                 </div>
 

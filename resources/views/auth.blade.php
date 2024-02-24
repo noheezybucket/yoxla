@@ -29,6 +29,7 @@
 
         </div>
     </div>
+    <livewire:yoxla />
 </body>
 
 </html>
