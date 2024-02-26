@@ -31,13 +31,63 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-div border">
-                            <label for="prices" class="form-label">Prix</label>
+                        <div class="form-div ">
+                            <label for="prices" class="form-label">Prix par jour</label>
                             <input type="range" name="prices" id="prices">
                         </div>
                         <div>
+                            <span class="form-label">Type</span>
                             <div class="form-div-row">
-                                <input type="checkbox" name="type" id="">
+                                <div class="w-full flex items-center gap-1">
+                                    <input type="checkbox" name="sedan" id="sedan" value="sedan">
+                                    <label for="sedan">Sedan</label>
+                                </div>
+
+                                <div class="w-full flex items-center gap-1">
+                                    <input type="checkbox" name="van" id="van">
+                                    <label for="van">Van</label>
+                                </div>
+
+                                <div class="w-full flex items-center gap-1">
+                                    <input type="checkbox" name="couple" id="couple">
+                                    <label for="couple">Couple</label>
+                                </div>
+                            </div>
+
+                            <div class="form-div-row">
+                                <div class="w-full flex items-center gap-1">
+                                    <input type="checkbox" name="pickup" id="pickup" value="pickup">
+                                    <label for="pickup">Pickup</label>
+                                </div>
+
+                                <div class="w-full flex items-center gap-1">
+                                    <input type="checkbox" name ="bus" id="bus" value="bus">
+                                    <label for="bus">Bus</label>
+                                </div>
+
+                                <div class="w-full flex items-center gap-1">
+                                    <input type="checkbox" name="truck" id="truck" value="truck">
+                                    <label for="camion">Camion</label>
+                                </div>
+                            </div>
+
+                            <div class="w-full form-div">
+                                <label for="color" class="form-label">Couleur</label>
+                                <select name="color" id="color" class="form-input">
+                                    @foreach ($vehicles as $vehicle)
+                                        <option value="{{ $vehicle->color }}">{{ $vehicle->color }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="w-full form-div">
+                                <label for="gearbox" class="form-label">Boîte de vitesse</label>
+                                <select name="gearbox" id="gearbox" class="form-input">
+                                    @foreach ($vehicles as $vehicle)
+                                        <option value="{{ $vehicle->gearbox }}">
+                                            {{ $vehicle->gearbox === 'auto' ? 'Automatique' : 'Manuelle' }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </form>
