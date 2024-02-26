@@ -1,7 +1,7 @@
 <aside class="h-[80vh] flex flex-col justify-between">
     <div class="space-y-1 flex flex-col items-center">
         {{-- home --}}
-        <a href="{{ route('admin.home') }}"
+        <a wire:navigate.hover href="{{ route('admin.home') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/home') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
             <svg class="menu-icon " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -10,7 +10,7 @@
         </a>
 
         {{-- vehicles --}}
-        <a href="{{ route('admin.vehicles') }}"
+        <a wire:navigate.hover href="{{ route('admin.vehicles') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/vehicles*') ? 'bg-third text-white ' : 'text-third dark:text-white hover:bg-third' }}">
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
@@ -20,7 +20,7 @@
         </a>
 
         {{-- drivers --}}
-        <a href="{{ route('admin.drivers') }}"
+        <a wire:navigate.hover href="{{ route('admin.drivers') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/drivers') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
 
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -31,7 +31,7 @@
         </a>
 
         {{-- stats --}}
-        <a href="{{ route('admin.statistics') }}"
+        <a wire:navigate.hover href="{{ route('admin.statistics') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/statistics') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
 
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -42,7 +42,7 @@
         </a>
 
         {{-- rent --}}
-        <a href="{{ route('admin.rental') }}"
+        <a wire:navigate.hover href="{{ route('admin.rental') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/rental') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
@@ -55,7 +55,7 @@
 
     <div class="space-y-2">
         {{-- help --}}
-        <a href="{{ route('admin.assistance') }}"
+        <a wire:navigate href="{{ route('admin.assistance') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/assistance') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
             <svg class="menu-icon text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@
         </a>
 
         {{-- settings --}}
-        <a href="{{ route('admin.settings') }}"
+        <a wire:navigate href="{{ route('admin.settings') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/settings') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
@@ -77,7 +77,7 @@
         </a>
 
         {{-- logout --}}
-        <a href="{{ route('admin.logout') }}"
+        <a wire:navigate href="{{ route('admin.logout') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/logout') ? 'bg-red-600 text-white' : 'text-red-600 dark:text-white hover:bg-red-600' }}">
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">

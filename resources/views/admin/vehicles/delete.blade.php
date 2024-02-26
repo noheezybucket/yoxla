@@ -17,7 +17,9 @@
                         <input type="hidden" name="id" value="{{ $id }}">
                         <div class="flex mt-5 gap-5">
                             <button type="submit" class="btn-delete w-full">Oui, je suis sûr</button>
-                            <a href="{{ route('admin.vehicles') }}" class="btn-primary ">Non, j'annule</a>
+                            <a wire:navigate.hover href="{{ route('admin.show-vehicle', ['id' => $id]) }}"
+                                class="btn-primary ">Non,
+                                j'annule</a>
 
                         </div>
                     </form>

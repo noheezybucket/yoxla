@@ -10,7 +10,7 @@
             <div class="flex flex-col gap-2  w-full h-[80vh] overflow-y-scroll">
                 <div class="flex justify-between w-3/4 mx-auto">
 
-                    <a href="{{ route('admin.show-vehicle', ['id' => $vehicle->id]) }}"
+                    <a wire:navigate.hover href="{{ route('admin.show-vehicle', ['id' => $vehicle->id]) }}"
                         class="font-bold text-xl flex items-center">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -144,7 +144,12 @@
                         </div>
                     </fieldset>
 
-                    <button type="submit" class="btn-primary">Enregistrer <x-fas-plus class="icon" /></button>
+                    <button type="submit" class="btn-primary" wire:loading.class="opacity-50">
+                        Enregistrer <x-fas-plus class="icon" />
+
+                    </button>
+
+
 
                 </form>
             </div>

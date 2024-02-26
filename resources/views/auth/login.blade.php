@@ -30,7 +30,7 @@
                 oublié?</a>
         </div>
         <div class=" mb-4">
-            <a href="{{ route('admin.vehicles') }}" class="btn-primary" id="login-btn">Se connecter
+            <a wire:navigate.hover href="{{ route('admin.vehicles') }}" class="btn-primary" id="login-btn">Se connecter
                 <x-fas-arrow-right-to-bracket class="icon" />
 
             </a>

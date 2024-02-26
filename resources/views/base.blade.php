@@ -11,7 +11,7 @@
 
 <body class="overflow-hidden">
     @yield('content')
-
+    <livewire:yoxla />
 
 </body>
 
