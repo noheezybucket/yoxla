@@ -52,7 +52,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="flex">
+                                <div class="flex justify-center">
 
                                     <img src="{{ $vehicle->photos }}" alt=""
                                         class="max-w-[300px] w-full object-contain">

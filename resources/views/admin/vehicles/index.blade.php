@@ -61,7 +61,8 @@
                                 <h2 class="vehicle-brand">{{ $vehicle->brand }}</h2>
                                 <div class="flex justify-between">
                                     <h2 class="vehicle-details">{{ $vehicle->model }}</h2>
-                                    <h2 class="vehicle-details">{{ $vehicle->daily_price }} XOF/jour </h2>
+                                    <h2 class="vehicle-details">{{ $vehicle->daily_price }} <span
+                                            class="font-normal text-sm">XOF/jour </span> </h2>
                                 </div>
                             </a>
                         @endforeach
