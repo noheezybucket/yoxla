@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
             $table->string('fullname');
+            $table->string('avatar')->nullable();
             $table->integer('years_of_xp');
-            $table->integer('avg_rating');
+            $table->integer('avg_rating')->default(0);
             $table->bigInteger('license_number');
             $table->bigInteger('phonenumber');
             $table->enum('license_category', ['A', 'B', 'AB']);
-            $table->enum('status', ['available', 'unavailable']);
+            $table->enum('status', ['available', 'unavailable'])->default('available');
             $table->date('license_emission_date');
             $table->date('license_expiration_date');
             $table->timestamps();

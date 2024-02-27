@@ -12,7 +12,7 @@
     margin: 0;
     padding: 0;
     font-family: "Quicksand";
-    /* @apply text-third; */
+
     @apply scroll-smooth;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .menu-icon {
-    @apply w-7 h-7;
+    @apply w-6 h-6;
 }
 
 .error {
@@ -99,6 +99,15 @@
 
 .vehicle-details {
     @apply font-bold text-xl;
+}
+
+/* driver  */
+.avg {
+    @apply h-4 w-4 block rounded-full bg-accent2;
+}
+
+.avg-no {
+    @apply h-4 w-4 block rounded-full bg-third;
 }
 
 /* custom scrollbar */
