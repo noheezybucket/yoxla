@@ -30,6 +30,17 @@
             </svg>
         </a>
 
+        {{-- rent --}}
+        <a wire:navigate.hover href="{{ route('admin.rental') }}"
+            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/rental') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
+            <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 10h16m-10 5h4m-2 2v-4m0-6V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.5-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Z" />
+            </svg>
+
+        </a>
+
         {{-- stats --}}
         <a wire:navigate.hover href="{{ route('admin.statistics') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/statistics') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
@@ -41,24 +52,25 @@
             </svg>
         </a>
 
-        {{-- rent --}}
-        <a wire:navigate.hover href="{{ route('admin.rental') }}"
-            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/rental') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
+        {{-- search --}}
+        <a wire:navigate.hover href="{{ route('admin.statistics') }}"
+            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/statistics') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
+
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M4 10h16m-10 5h4m-2 2v-4m0-6V4M7 7V4m10 3V4M5 20h14c.6 0 1-.4 1-1V7c0-.5-.4-1-1-1H5a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Z" />
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                    d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
             </svg>
-
         </a>
+
     </div>
 
     <div class="space-y-2">
         {{-- help --}}
         <a wire:navigate href="{{ route('admin.assistance') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/assistance') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
-            <svg class="menu-icon text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                fill="none" viewBox="0 0 24 24">
+            <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M9.5 10a2.5 2.5 0 1 1 5 .2 2.4 2.4 0 0 1-2.5 2.4V14m0 3h0m9-5a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>

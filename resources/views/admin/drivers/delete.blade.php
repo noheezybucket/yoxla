@@ -1,5 +1,5 @@
 @extends('base')
-@section('title', 'Supprimer le véhicule')
+@section('title', 'Supprimer le chauffeur')
 
 @section('content')
     <div class="mx-10">
@@ -10,14 +10,14 @@
             <div class="w-full h-[80vh] flex justify-center items-center">
                 <div class="w-1/2">
                     <p class="text-3xl font-bold text-center">Nous vous rappelons que cette action est
-                        irréversible...Êtes-vous sûr de vouloir supprimer ce véhicule ?</p>
-                    <form action="{{ route('admin.delete-vehicle-treatment', ['id' => $id]) }}" method="POST">
+                        irréversible...Êtes-vous sûr de vouloir supprimer ce chauffeur ?</p>
+                    <form action="{{ route('admin.delete-driver-treatment', ['id' => $id]) }}" method="POST">
                         @method('DELETE')
                         @csrf
                         <input type="hidden" name="id" value="{{ $id }}">
                         <div class="flex mt-5 gap-5">
                             <button type="submit" class="btn-delete w-full">Oui, je suis sûr</button>
-                            <a wire:navigate.hover href="{{ route('admin.show-vehicle', ['id' => $id]) }}"
+                            <a wire:navigate.hover href="{{ route('admin.show-driver', ['id' => $id]) }}"
                                 class="btn-primary ">Non,
                                 j'annule</a>
 

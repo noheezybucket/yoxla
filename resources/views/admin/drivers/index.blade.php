@@ -7,21 +7,22 @@
 
         <div class="flex gap-5">
             @include('components.admin-menu')
-            <div class="w-full h-[80vh] space-y-3">
+            <div class="w-full h-[70vh] space-y-3">
 
                 <div class="flex justify-between items-center">
                     <h1 class="font-bold text-2xl">Chauffeurs</h1>
                     <a wire:navigate.hover href="{{ route('admin.create-driver') }}" class="btn-secondary">Ajouter un
                         chauffeur <x-fas-plus class="icon mr-0" /></a>
                 </div>
-                <div class="grid grid-cols-3 gap-3 overflow-scroll h-full pr-4 py-5">
+                <div class="grid grid-cols-3 gap-3 overflow-y-scroll h-full pr-4 py-5">
                     @foreach ($drivers as $driver)
-                        <div class="border bg-second flex justify-center rounded-2xl gap-5 p-4 h-fit">
+                        <a wire:navigate.hover href="{{ route('admin.show-driver', ['id' => $driver->id]) }}"
+                            class="border bg-second flex justify-center rounded-2xl gap-5 p-4 h-fit">
                             <div class="max-w-[100px]">
                                 @if ($driver->avatar)
                                     <img src="{{ $driver->avatar }}" alt="">
                                 @else
-                                    <svg class="w-20 h-20 text-gray-800 dark:text-white" aria-hidden="true"
+                                    <svg class=" text-gray-800 dark:text-white max-w-[100px] w-full" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                             stroke-width="2"
@@ -36,17 +37,19 @@
                                 <h3>Catégorie de permis : <span class="font-normal">{{ $driver->license_category }}</span>
                                 </h3>
                                 @include('components.label-status-driver')
-                                <div class="flex gap-1">
-                                    <span class="avg"></span>
-                                    <span class="avg"></span>
-                                    <span class="avg"></span>
-                                    <span class="avg-no"></span>
-                                    <span class="avg-no"></span>
+                                <div class="flex gap-1 items-center">
+                                    @for ($i = 0; $i < $driver->years_of_xp; $i++)
+                                        <span class="avg"></span>
+                                    @endfor
+                                    @for ($i = $driver->years_of_xp; $i < 5; $i++)
+                                        <span class="avg-no"></span>
+                                    @endfor
+                                    <span class="font-bold">XP</span>
                                 </div>
                                 <div></div>
                             </div>
 
-                        </div>
+                        </a>
                     @endforeach
 
                 </div>

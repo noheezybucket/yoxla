@@ -75,15 +75,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="flex flex-col mb-2">
-                                <span class="vehicle-brand">{{ $vehicle->brand }}</span>
-                                <div class="flex justify-between">
-                                    <span class="vehicle-details">{{ $vehicle->model }}</span>
-                                    <span class="vehicle-details ">{{ $vehicle->daily_price }} XOF/jour</span>
-
-                                </div>
-                            </div> --}}
-
                             <div class="space-y-1">
                                 <span class="font-bold text-2xl">Plus de détails</span>
                                 <div class="flex justify-between">
