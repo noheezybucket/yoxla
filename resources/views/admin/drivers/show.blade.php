@@ -60,15 +60,10 @@
                         </div>
                     </div>
 
-                    <div>
+                    <div class="w-full">
 
                         <div class="flex flex-col mb-2">
                             <span class="text-4xl font-bold">{{ $driver->fullname }}</span>
-                            {{-- <div class="flex justify-between">
-                            <span class="vehicle-details">{{ $driver->model }}</span>
-                            <span class="vehicle-details ">{{ $driver->daily_price }} XOF/jour</span>
-
-                        </div> --}}
                         </div>
 
                         <div class="space-y-1 w-full">
