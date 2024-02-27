@@ -14,8 +14,8 @@
             </svg>
         </div>
 
-        <div class="text-third  flex justify-center items-center">
-            <p class="text-center w-[100px] ">Recherche</p>
+        <div class="text-third  flex  items-center">
+            <p class="text-center w-[200px] ">Recherche</p>
         </div>
     </div>
 

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('daily_price');
             $table->integer('hourly_price');
             $table->dateTime('purchase_date');
-            $table->bigInteger('origin_mileage');
+            $table->bigInteger('origin_mileage')->default(0);
             $table->bigInteger('actual_mileage')->nullable();
             $table->bigInteger('registration')->unique();
             $table->json('photos');

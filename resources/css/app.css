@@ -101,6 +101,15 @@
     @apply font-bold text-xl;
 }
 
+/* driver  */
+.avg {
+    @apply h-4 w-4 block rounded-full bg-accent2;
+}
+
+.avg-no {
+    @apply h-4 w-4 block rounded-full bg-third;
+}
+
 /* custom scrollbar */
 /* width */
 ::-webkit-scrollbar {

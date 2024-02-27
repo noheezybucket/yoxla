@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DriverController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,8 +36,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::put('vehicles/update/{id}', [VehicleController::class, 'update'])->name('update-vehicle-treatment');
     Route::get('vehicles/delete/{id}', [VehicleController::class, 'delete'])->name('delete-vehicle');
     Route::delete('vehicles/delete/{id}', [VehicleController::class, 'destroy'])->name('delete-vehicle-treatment');
-    // 
-    Route::view('drivers', 'admin.drivers')->name('drivers');
+    // drivers
+    Route::get('drivers', [DriverController::class, 'index'])->name('drivers');
+    Route::get('drivers/create', [DriverController::class, 'create'])->name('create-driver');
+    Route::post('drivers/create', [DriverController::class, 'store'])->name('create-driver-treatment');
+    //
     Route::view('statistics', 'admin.statistics')->name('statistics');
     Route::view('rental', 'admin.rental')->name('rental');
     Route::view('assistance', 'admin.assistance')->name('assistance');

@@ -21,7 +21,7 @@
 
         {{-- drivers --}}
         <a wire:navigate.hover href="{{ route('admin.drivers') }}"
-            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/drivers') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
+            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/drivers*') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
 
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
