@@ -83,10 +83,13 @@
                             <div class="w-full form-div">
                                 <label for="gearbox" class="form-label">Boîte de vitesse</label>
                                 <select name="gearbox" id="gearbox" class="form-input">
+
                                     @foreach ($vehicles as $vehicle)
                                         <option value="{{ $vehicle->gearbox }}">
                                             {{ $vehicle->gearbox === 'auto' ? 'Automatique' : 'Manuelle' }}</option>
                                     @endforeach
+
+
                                 </select>
                             </div>
                         </div>
@@ -98,27 +101,32 @@
                         <a wire:navigate.hover href="{{ route('admin.create-vehicle') }}" class="btn-secondary">Ajouter un
                             véhicule <x-fas-plus class="icon mr-0" /></a>
                     </div>
-                    <div class="grid grid-cols-2 gap-3">
-                        @foreach ($vehicles as $vehicle)
-                            <a wire:navigate.hover href="{{ url('admin/vehicles/show/' . $vehicle->id) }}"
-                                class="vehicle-card">
-                                <div class="space-y-3">
-                                    @include('components.label-status')
+                    @if (count($vehicles) > 0)
+                        <div class="grid grid-cols-2 gap-3">
 
-                                </div>
+                            @foreach ($vehicles as $vehicle)
+                                <a wire:navigate.hover href="{{ url('admin/vehicles/show/' . $vehicle->id) }}"
+                                    class="vehicle-card">
+                                    <div class="space-y-3">
+                                        @include('components.label-status')
 
-                                <img src="{{ $vehicle->photos }}" alt="" class="">
-                                <h2 class="vehicle-brand">{{ $vehicle->brand }}</h2>
-                                <div class="flex justify-between">
-                                    <h2 class="vehicle-details">{{ $vehicle->model }}</h2>
-                                    <h2 class="vehicle-details">{{ $vehicle->daily_price }} <span
-                                            class="font-normal text-sm">XOF/jour </span> </h2>
-                                </div>
-                            </a>
-                        @endforeach
+                                    </div>
+
+                                    <img src="{{ $vehicle->photos }}" alt="" class="">
+                                    <h2 class="vehicle-brand">{{ $vehicle->brand }}</h2>
+                                    <div class="flex justify-between">
+                                        <h2 class="vehicle-details">{{ $vehicle->model }}</h2>
+                                        <h2 class="vehicle-details">{{ $vehicle->daily_price }} <span
+                                                class="font-normal text-sm">XOF/jour </span> </h2>
+                                    </div>
+                                </a>
+                            @endforeach
 
 
-                    </div>
+                        </div>
+                    @else
+                        <h2 class="text-center font-bold w-full">Vous n'avez pas encore ajouté de véhicule...</h2>
+                    @endif
                 </div>
             </div>
         </div>

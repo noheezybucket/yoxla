@@ -102,6 +102,16 @@
                             </div>
                         </fieldset>
 
+                        <fieldset class="field">
+                            <legend class="field-legend">Chauffeur</legend>
+                            <div class="form-div">
+                                <label for="driver_id" class="form-label">Nom & Prénom</label>
+                                <select name="driver_id" id="driver_id" class="form-input">
+                                    <option value="1">Ndoye</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
 
                         {{-- tarification --}}
                         <fieldset class="field">

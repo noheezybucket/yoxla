@@ -47,9 +47,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('drivers/delete/{id}', [DriverController::class, 'delete'])->name('delete-driver');
     Route::delete('drivers/delete/{id}', [DriverController::class, 'destroy'])->name('delete-driver-treatment');
 
-    //
+    //rentals
+    Route::view('rentals', 'admin.rental')->name('rental');
+
+
     Route::view('statistics', 'admin.statistics')->name('statistics');
-    Route::view('rental', 'admin.rental')->name('rental');
     Route::view('assistance', 'admin.assistance')->name('assistance');
     Route::view('settings', 'admin.settings')->name('settings');
     Route::view('logout', 'admin.logout')->name('logout');

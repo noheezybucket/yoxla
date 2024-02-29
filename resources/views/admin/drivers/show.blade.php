@@ -103,7 +103,12 @@
 
                             <div class="flex justify-between">
                                 <span>Voiture</span>
-                                <span class="font-bold">-</span>
+                                @if ($driver->vehicle)
+                                    <a href="{{ route('admin.show-vehicle', ['id' => $driver->vehicle->id]) }}"
+                                        class="font-bold">Voir la voiture</a>
+                                @else
+                                    <span>-</span>
+                                @endif
                             </div>
                         </div>
                     </div>

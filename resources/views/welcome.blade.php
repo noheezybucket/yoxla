@@ -2,9 +2,9 @@
 @section('title', 'Accueil')
 
 @section('content')
-    @include('components.guest-menu')
-    <section class="text-gray-600 bg-white body-font">
-        <div class="container mx-auto flex px-5  py-24 md:flex-row-reverse flex-col items-center">
+    <section class="text-gray-600 bg-white body-font overflow-y-auto h-[100vh]">
+        @include('components.guest-menu')
+        <div class="container mx-auto flex justify-between  py-24 md:flex-row-reverse flex-col items-between">
             <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
                 <img class="object-cover object-center rounded" alt="hero" src="{{ asset('assets/bmw.png') }}">
             </div>
