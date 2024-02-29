@@ -7,7 +7,15 @@
 
         <div class="flex gap-5">
             @include('components.admin-menu')
-            <div>Page Content Here</div>
+            <div class="w-full space-y-5 overflow-y-auto">
+                <div class="shadow-lg border rounded-2xl p-4 font-bold">Bienvenue sur votre dashboard, Mouhamad</div>
+
+                <div class="">
+                    <table class="table">
+
+                    </table>
+                </div>
+            </div>
         </div>
 
     </div>
