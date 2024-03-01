@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('driver_id')->unsigned()->nullable();
             $table->string('brand');
             $table->string('model');
             $table->string('color');
@@ -28,6 +29,8 @@ return new class extends Migration
             $table->enum('type', ['bus', 'truck', 'berline']);
             $table->enum('status', ['available', 'breakdown', 'unavailable']);
             $table->timestamps();
+
+            $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('cascade');
         });
     }
 

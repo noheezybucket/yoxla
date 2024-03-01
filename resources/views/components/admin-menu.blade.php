@@ -32,7 +32,7 @@
 
         {{-- rent --}}
         <a wire:navigate.hover href="{{ route('admin.rental') }}"
-            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/rental') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
+            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/rental*') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -43,7 +43,7 @@
 
         {{-- stats --}}
         <a wire:navigate.hover href="{{ route('admin.statistics') }}"
-            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/statistics') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
+            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/statistics*') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
 
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
@@ -54,7 +54,7 @@
 
         {{-- search --}}
         <a wire:navigate.hover href="{{ route('admin.statistics') }}"
-            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/statistics') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
+            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/statistics*') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
 
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
@@ -68,7 +68,7 @@
     <div class="space-y-2">
         {{-- help --}}
         <a wire:navigate href="{{ route('admin.assistance') }}"
-            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/assistance') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
+            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/assistance*') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -78,7 +78,7 @@
 
         {{-- settings --}}
         <a wire:navigate href="{{ route('admin.settings') }}"
-            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/settings') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
+            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/settings*') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

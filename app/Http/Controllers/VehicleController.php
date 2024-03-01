@@ -99,6 +99,7 @@ class VehicleController extends Controller
     function destroy($id)
     {
         $vehicle = Vehicle::find($id);
+
         $vehicle->delete();
 
         return redirect('admin/vehicles')->with('status', 'Véhicule supprimé avec succès');

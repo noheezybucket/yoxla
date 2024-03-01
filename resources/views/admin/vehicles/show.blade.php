@@ -8,7 +8,7 @@
 
         <div class="flex gap-5">
             @include('components.admin-menu')
-            <div class="flex justify-between  w-full gap-5 ">
+            <div class="flex justify-between  w-full  ">
                 <div class=" w-full p-2 space-y-3">
                     <div class="flex justify-between">
 
@@ -115,21 +115,72 @@
                     </div>
                     <div class="w-full rounded-2xl bg-second h-1/2 p-2 flex items-center justify-center">
                         {{-- <h2 class="font-bold text-xl text-white">Informations de booking</h2> --}}
-                        <div class="flex flex-col items-center gap-3">
+                        @if ($vehicle->driver_id === null)
+                            <div class="flex flex-col items-center gap-3">
 
-                            <svg class="w-14 h-14 text-third dark:text-white" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <svg class="w-14 h-14 text-third dark:text-white" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M15 9h3m-3 3h3m-3 3h3m-6 1c-.3-.6-1-1-1.6-1H7.6c-.7 0-1.3.4-1.6 1M4 5h16c.6 0 1 .4 1 1v12c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1V6c0-.6.4-1 1-1Zm7 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+                                </svg>
+                                <span class="text-third">Cette voiture n'a pas de chauffeur pour le moment !</span>
+                                <a href="" class="btn-secondary">
+                                    Attribuer un chauffeur <x-fas-plus class="icon" />
+                                </a>
+                            </div>
+                    </div>
+                @else
+                    <div class="flex justify-around w-full gap-3">
+
+                        @if ($vehicle->driver->avatar)
+                            <img src="{{ $vehicle->driver->avatar }}" alt=""
+                                class="max-w-[200px] w-full object-contain">
+                        @else
+                            <svg class=" text-gray-800 dark:text-white max-w-[200px] w-full object-contain"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M15 9h3m-3 3h3m-3 3h3m-6 1c-.3-.6-1-1-1.6-1H7.6c-.7 0-1.3.4-1.6 1M4 5h16c.6 0 1 .4 1 1v12c0 .6-.4 1-1 1H4a1 1 0 0 1-1-1V6c0-.6.4-1 1-1Zm7 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
                             </svg>
-                            <span class="text-third">Cette voiture n'a pas de chauffeur pour le moment !</span>
-                            <a href="" class="btn-secondary">
-                                Attribuer un chauffeur <x-fas-plus class="icon" />
-                            </a>
+                        @endif
+                        <div class="flex flex-col w-full justify-center gap-1">
+                            <div class="flex justify-between">
+                                <span>Nom complet</span>
+                                <span class="font-bold">{{ $vehicle->driver->fullname }}</span>
+                            </div>
+                            <hr>
+
+                            <div class="flex justify-between">
+                                <span>N° Permis</span>
+                                <span class="font-bold">{{ $vehicle->driver->license_number }}</span>
+                            </div>
+                            <hr>
+                            <div class="flex justify-between">
+                                <span>Catégorie</span>
+                                <span class="font-bold">{{ $vehicle->driver->license_category }}</span>
+                            </div>
+                            <hr>
+
+                            <div class="flex gap-1 items-center">
+                                @for ($i = 0; $i < $vehicle->driver->years_of_xp; $i++)
+                                    <span class="avg"></span>
+                                @endfor
+                                @for ($i = $vehicle->driver->years_of_xp; $i < 5; $i++)
+                                    <span class="avg-no"></span>
+                                @endfor
+                                <span class="font-bold">XP</span>
+                            </div>
+                            <hr>
+
+                            <a href="{{ route('admin.show-driver', ['id' => $vehicle->driver->id]) }}"
+                                class="btn-primary">Plus de détails sur le chauffeur</a>
                         </div>
                     </div>
+                    @endif
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
