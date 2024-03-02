@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DriverController;
+use App\Http\Controllers\RentalController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,8 +49,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::delete('drivers/delete/{id}', [DriverController::class, 'destroy'])->name('delete-driver-treatment');
 
     //rentals
-    Route::view('rentals', 'admin.rental')->name('rental');
-
+    Route::get('rentals', [RentalController::class, 'index'])->name('rentals');
+    Route::get('rentals/create', [RentalController::class, 'create'])->name('create-rental');
+    Route::post('rentals/create', [RentalController::class, 'store'])->name('create-rental-treatment');
+    Route::get('rentals/show/{id}', [RentalController::class, 'show'])->name('show-rental');
+    Route::get('rentals/update/{id}', [RentalController::class, 'update_form'])->name('update-rental');
+    Route::put('rentals/update/{id}', [RentalController::class, 'update'])->name('update-rental-treatment');
+    Route::get('rentals/delete/{id}', [RentalController::class, 'delete'])->name('delete-rental');
+    Route::delete('rentals/delete/{id}', [RentalController::class, 'destroy'])->name('delete-rental-treatment');
 
     Route::view('statistics', 'admin.statistics')->name('statistics');
     Route::view('assistance', 'admin.assistance')->name('assistance');

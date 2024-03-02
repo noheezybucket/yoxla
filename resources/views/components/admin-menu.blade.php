@@ -31,8 +31,8 @@
         </a>
 
         {{-- rent --}}
-        <a wire:navigate.hover href="{{ route('admin.rental') }}"
-            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/rental*') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
+        <a wire:navigate.hover href="{{ route('admin.rentals') }}"
+            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/rentals*') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

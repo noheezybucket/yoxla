@@ -42,10 +42,7 @@
                                     <label for="model" class="form-label">Model</label>
                                     <input type="text" id="model" name="model" class="form-input">
                                 </div>
-                                <div>
-                                    <label for="color" class="form-label">Couleur</label>
-                                    <input type="text" id="color" name="color" class="form-input">
-                                </div>
+
                                 <div class="form-div w-full">
                                     <label for="seats" class="form-label">Nombre de sièges</label>
                                     <input type="number" id="seats" name="seats" class="form-input">
@@ -96,6 +93,10 @@
                                             <input type="radio" id="gearbox" name="gearbox" class="form-input"
                                                 value="manual">
                                             <label for="gearbox" class="form-label">Manuelle</label>
+                                        </div>
+                                        <div>
+                                            <label for="color" class="form-label">Couleur</label>
+                                            <input type="color" id="color" name="color" class="">
                                         </div>
                                     </div>
                                 </div>

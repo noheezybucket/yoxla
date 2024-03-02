@@ -14,18 +14,20 @@ return new class extends Migration
         Schema::create('rentals', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('vehicle_id')->unsigned();
-            $table->bigInteger('distance');
-            $table->bigInteger('price');
+            $table->bigInteger('distance')->default(0);
+            $table->bigInteger('price')->default(0);
             $table->string('client_fullname');
             $table->bigInteger('client_phonenumber');
             $table->string('starting_point');
             $table->string('ending_point');
-            $table->date('starting_date');
-            $table->date('ending_date');
+            $table->dateTime('starting_date');
+            $table->dateTime('ending_date');
             $table->enum('rent_type', ['daily', 'hourly']);
             $table->enum('payment_method', ['mobile', 'cash']);
             $table->enum('status', ['paid', 'pending']);
             $table->timestamps();
+
+            $table->foreign('vehicle_id')->references('id')->on('vehicles');
         });
     }
 
