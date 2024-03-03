@@ -88,7 +88,7 @@
                                                             </svg>
                                                         </a>
                                                         </a>
-                                                        <a href="{{ route('admin.show-rental', ['id' => $rental->id]) }}"
+                                                        <a href="{{ route('admin.delete-rental', ['id' => $rental->id]) }}"
                                                             class="p-3 text-red-400 bg-red-200 rounded-xl flex justify-center">
                                                             <svg class="w-6 h-6 inline-block dark:text-white"
                                                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg"

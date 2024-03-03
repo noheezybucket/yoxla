@@ -112,6 +112,21 @@
                         </div>
                     </fieldset>
 
+                    <fieldset class="field">
+                        <legend class="field-legend">Chauffeur</legend>
+                        <div class="form-div">
+                            <label for="driver_id" class="form-label">Nom & Prénom</label>
+                            <select name="driver_id" id="driver_id" class="form-input">
+                                <option selected></option>
+                                @foreach ($drivers as $driver)
+                                    @if ($driver->status === 'available')
+                                        <option value="{{ $driver->id }}">{{ $driver->fullname }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+                    </fieldset>
+
 
                     {{-- tarification --}}
                     <fieldset class="field">

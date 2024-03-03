@@ -108,7 +108,12 @@
                             <div class="form-div">
                                 <label for="driver_id" class="form-label">Nom & Prénom</label>
                                 <select name="driver_id" id="driver_id" class="form-input">
-                                    <option value="1">Ndoye</option>
+                                    <option selected></option>
+                                    @foreach ($drivers as $driver)
+                                        @if ($driver->status === 'available')
+                                            <option value="{{ $driver->id }}">{{ $driver->fullname }}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                             </div>
                         </fieldset>

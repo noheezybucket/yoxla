@@ -30,7 +30,7 @@ return new class extends Migration
             $table->enum('status', ['available', 'breakdown', 'unavailable']);
             $table->timestamps();
 
-            $table->foreign('driver_id')->references('id')->on('drivers');
+            $table->foreign('driver_id')->references('id')->on('drivers')->cascadeOnUpdate()->nullOnDelete();
         });
     }
 

@@ -24,10 +24,10 @@ return new class extends Migration
             $table->dateTime('ending_date');
             $table->enum('rent_type', ['daily', 'hourly']);
             $table->enum('payment_method', ['mobile', 'cash']);
-            $table->enum('status', ['paid', 'pending']);
+            $table->enum('status', ['pending', 'paid']);
             $table->timestamps();
 
-            $table->foreign('vehicle_id')->references('id')->on('vehicles');
+            $table->foreign('vehicle_id')->references('id')->on('vehicles')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 
