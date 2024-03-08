@@ -42,10 +42,7 @@
                                     <label for="model" class="form-label">Model</label>
                                     <input type="text" id="model" name="model" class="form-input">
                                 </div>
-                                <div>
-                                    <label for="color" class="form-label">Couleur</label>
-                                    <input type="text" id="color" name="color" class="form-input">
-                                </div>
+
                                 <div class="form-div w-full">
                                     <label for="seats" class="form-label">Nombre de sièges</label>
                                     <input type="number" id="seats" name="seats" class="form-input">
@@ -97,6 +94,10 @@
                                                 value="manual">
                                             <label for="gearbox" class="form-label">Manuelle</label>
                                         </div>
+                                        <div>
+                                            <label for="color" class="form-label">Couleur</label>
+                                            <input type="color" id="color" name="color" class="">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +108,12 @@
                             <div class="form-div">
                                 <label for="driver_id" class="form-label">Nom & Prénom</label>
                                 <select name="driver_id" id="driver_id" class="form-input">
-                                    <option value="1">Ndoye</option>
+                                    <option selected></option>
+                                    @foreach ($drivers as $driver)
+                                        @if ($driver->status === 'available')
+                                            <option value="{{ $driver->id }}">{{ $driver->fullname }}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                             </div>
                         </fieldset>

@@ -33,6 +33,7 @@
                                     @endif
                                 </div>
                                 <div class="space-y-2">
+                                    @include('components.label-status-driver')
                                     <h2 class="font-bold text-3xl">{{ $driver->fullname }}
                                         {{-- <span class="font-normal">{{ explode(' ', $driver->fullname)[1] }}</span> --}}
                                     </h2>
@@ -40,7 +41,6 @@
                                     <h3>Catégorie de permis : <span
                                             class="font-normal">{{ $driver->license_category }}</span>
                                     </h3>
-                                    @include('components.label-status-driver')
                                     <div class="flex gap-1 items-center">
                                         @for ($i = 0; $i < $driver->years_of_xp; $i++)
                                             <span class="avg"></span>

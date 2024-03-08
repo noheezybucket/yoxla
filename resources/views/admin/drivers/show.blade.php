@@ -19,7 +19,7 @@
                     </a>
                 </div>
                 <div class="flex  gap-5 bg-second rounded-2xl justify-center items-center p-4">
-                    <div class="flex flex-col bg-second rounded-2xl my-2 p-2">
+                    <div class="flex flex-col bg-second rounded-2xl my-2 p-2 gap-5">
                         <div class="flex justify-between items-center">
                             <div>
                                 @include('components.label-status-driver')
