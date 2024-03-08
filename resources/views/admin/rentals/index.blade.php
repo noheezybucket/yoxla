@@ -26,6 +26,9 @@
                                                     ID
                                                 </th>
                                                 <th class="px-6 py-2 ">
+                                                    Voiture
+                                                </th>
+                                                <th class="px-6 py-2 ">
                                                     Nom du client
                                                 </th>
                                                 <th class="px-6 py-2 ">
@@ -50,6 +53,9 @@
                                                     <td class="px-6 py-4 text-sm ">
                                                         {{ $rental->id }}
                                                     </td>
+                                                    <td class="px-6 py-4 text-sm ">
+                                                        <img src="{{ $rental->vehicle->photos }}" alt="">
+                                                    </td>
                                                     <td class="px-6 py-4">
                                                         {{ $rental->client_fullname }}
 
@@ -65,7 +71,7 @@
                                                         {{ $rental->ending_date }}
                                                     </td>
 
-                                                    <td class="px-6 py-4 space-x-2 flex">
+                                                    <td class="px-6 py-4 space-x-2 flex items-center justify-center h-full">
                                                         <a href="{{ route('admin.show-rental', ['id' => $rental->id]) }}"
                                                             class="p-3 text-second bg-third rounded-xl  flex justify-center">
                                                             <svg class="w-6 h-6 inline-block dark:text-white"
@@ -88,7 +94,7 @@
                                                             </svg>
                                                         </a>
                                                         </a>
-                                                        <a href="{{ route('admin.delete-rental', ['id' => $rental->id]) }}"
+                                                        <a href="{{ route('admin.delete-rental', ['id' => $rental->id, '']) }}"
                                                             class="p-3 text-red-400 bg-red-200 rounded-xl flex justify-center">
                                                             <svg class="w-6 h-6 inline-block dark:text-white"
                                                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg"

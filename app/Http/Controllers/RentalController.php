@@ -55,4 +55,35 @@ class RentalController extends Controller
 
         return view('admin.rentals.update', compact('rental', 'vehicles'));
     }
+
+    function update(Request $request, $id)
+    {
+        $rental = Rental::find($id);
+
+        $request->validate([
+            'vehicle_id' => 'required',
+            'client_fullname' => 'required',
+            'client_phonenumber' => 'required',
+            'starting_point' => 'required',
+            'ending_point' => 'required',
+            'starting_date' => 'required',
+            'ending_date' => 'required',
+        ]);
+
+        $rental->update($request->all());
+
+        return redirect('admin/rentals/update/' . $id)->with('status', 'Location modifiée avec succès');
+    }
+
+    function delete($id)
+    {
+        return view('admin/rentals/delete', compact("id"));
+    }
+
+    function destroy($id)
+    {
+        $rental = Rental::find($id);
+        $rental->delete();
+        return redirect('admin/rentals')->with('status', 'Véhicule supprimé avec succès');
+    }
 }

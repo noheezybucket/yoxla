@@ -22,7 +22,7 @@
                         </a>
                     </div>
 
-                    <form action="{{ route('admin.update-rental-treatment', ['id', $rental->id]) }}" method="POST"
+                    <form action="{{ route('admin.update-rental-treatment', ['id' => $rental->id]) }}" method="POST"
                         class=" space-y-5">
                         @if (session('status'))
                             <div class="success">{{ session('status') }}</div>
@@ -70,7 +70,7 @@
                                 <label for="vehicle_id" class="form-label">Voitures disponibles</label>
                                 <select name="vehicle_id" id="vehicle_id" class="form-input">
                                     <option selected value="{{ $rental->vehicle_id }}">{{ $rental->vehicle->brand }} -
-                                        {{ $rental->vehicle->driver->fullname }} </option>
+                                        {{ $rental->vehicle->driver }} </option>
                                     @if (count($vehicles) > 0)
                                         @foreach ($vehicles as $vehicle)
                                             @if ($vehicle->status === 'available' && $vehicle->driver_id > 0)
