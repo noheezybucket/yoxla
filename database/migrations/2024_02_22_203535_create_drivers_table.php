@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('fullname');
             $table->string('avatar')->nullable();
+            $table->string('password');
             $table->integer('years_of_xp');
             $table->integer('avg_rating')->default(0);
-            $table->bigInteger('license_number');
-            $table->bigInteger('phonenumber');
+            $table->bigInteger('license_number')->unique();
+            $table->bigInteger('phonenumber')->unique();
+            $table->bigInteger('salary')->nullable();
             $table->enum('license_category', ['A', 'B', 'AB']);
             $table->enum('status', ['available', 'unavailable'])->default('available');
             $table->date('license_emission_date');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\VehicleController;
@@ -21,13 +22,23 @@ Route::get('/', function () {
 });
 
 Route::prefix('auth')->name('auth.')->group(function () {
-    Route::view('login', 'auth.login')->name('login');
+    // admin auth
+    Route::get('admin_login', [AdminController::class, 'admin_login_form'])->name('admin-login');
+    Route::post('admin_login', [AdminController::class, 'login'])->name('do-admin-login');
+
+    // driver auth
+    Route::get('driver_login', [DriverController::class, 'driver_login_form'])->name('driver-login');
+    Route::post('driver_login', [DriverController::class, 'login'])->name('do-driver-login');
+
+    // client
+
+
     Route::view('register', 'auth.register')->name('register');
 });
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::view('home', 'admin.home')->name('home');
+Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('dashboard', [AdminController::class, 'dashboard'])->name('home');
     //vehicles
     Route::get('vehicles', [VehicleController::class, 'index'])->name('vehicles');
     Route::get('vehicles/create', [VehicleController::class, 'create'])->name('create-vehicle');
@@ -61,5 +72,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::view('statistics', 'admin.statistics')->name('statistics');
     Route::view('assistance', 'admin.assistance')->name('assistance');
     Route::view('settings', 'admin.settings')->name('settings');
-    Route::view('logout', 'admin.logout')->name('logout');
+    //logout
+    Route::get('logout', [AdminController::class, 'logout'])->name('logout');
+});
+
+Route::middleware('driver')->prefix('driver')->name('driver.')->group(function () {
+    Route::get('dashboard', [DriverController::class, 'dashboard'])->name('home');
 });

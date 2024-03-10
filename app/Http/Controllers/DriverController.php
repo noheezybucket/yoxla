@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Driver;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class DriverController extends Controller
 {
+    function dashboard()
+    {
+        return view('driver.home');
+    }
+
     function index()
     {
         $drivers = Driver::all();
@@ -30,7 +38,7 @@ class DriverController extends Controller
             'license_emission_date' => 'required',
             'license_expiration_date' => 'required',
             'avatar' => 'nullable',
-
+            'password' => 'required'
         ]);
 
         Driver::create([
@@ -41,7 +49,8 @@ class DriverController extends Controller
             'license_category' => $request->license_category,
             'license_emission_date' => $request->license_emission_date,
             'license_expiration_date' => $request->license_expiration_date,
-            'avatar' => $request->avatar
+            'avatar' => $request->avatar,
+            'password' => Hash::make($request->password)
         ]);
 
         return redirect('admin/drivers/create')->with('status', 'Chauffeur ajouté avec succès');
@@ -92,5 +101,25 @@ class DriverController extends Controller
         $driver->delete();
 
         return redirect('admin/drivers')->with('status', 'Chauffeur supprimé avec succès');
+    }
+
+    function driver_login_form()
+    {
+        return view('auth.driver-login');
+    }
+
+    function login(Request $request)
+    {
+        $request->validate([
+            'phonenumber' => 'required',
+            'password' => 'required',
+        ]);
+
+        if (Auth::guard('driver')->attempt(['phonenumber' => $request->phonenumber, 'password' => $request->password])) {
+            return redirect()->route('driver.home');
+        } else {
+            Session::flash('error-message', 'Email ou mot de passe invalide');
+            return back();
+        }
     }
 }

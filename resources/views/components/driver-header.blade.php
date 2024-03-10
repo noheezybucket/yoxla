@@ -1,6 +1,6 @@
 <header class=" py-5 flex justify-between items-center">
     <div>
-        <h1 class="text-4xl font-bold text-white  px-2 pb-1 bg-third rounded-2xl">
+        <h1 class="text-4xl font-bold text-white  px-2 pb-1 bg-accent2 rounded-2xl">
             yoxlā
         </h1>
     </div>
@@ -23,7 +23,7 @@
         {{-- <span>Dakar,Sénégal</span> --}}
         <div><x-far-user class="icon " /></div>
         <div class="flex flex-col">
-            <span class="font-semibold">Admin</span>
+            <span class="font-semibold">Chauffeur</span>
             {{-- <span class="font-light text-sm">Dakar, Senegal</span> --}}
         </div>
     </div>
