@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\VehicleController;
@@ -21,13 +23,25 @@ Route::get('/', function () {
 });
 
 Route::prefix('auth')->name('auth.')->group(function () {
-    Route::view('login', 'auth.login')->name('login');
-    Route::view('register', 'auth.register')->name('register');
+    // admin auth
+    Route::get('admin_login', [AdminController::class, 'admin_login_form'])->name('admin-login');
+    Route::post('admin_login', [AdminController::class, 'login'])->name('do-admin-login');
+
+    // driver auth
+    Route::get('driver_login', [DriverController::class, 'driver_login_form'])->name('driver-login');
+    Route::post('driver_login', [DriverController::class, 'login'])->name('do-driver-login');
+
+    // client
+    Route::get('client_login', [ClientController::class, 'client_login_form'])->name('client-login');
+    Route::post('client_login', [ClientController::class, 'login'])->name('do-client-login');
+
+    Route::view('client_register', 'auth.client-register')->name('client_register');
+    Route::post('client_register', [ClientController::class, 'register'])->name('do-client-register');
 });
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::view('home', 'admin.home')->name('home');
+Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('dashboard', [AdminController::class, 'dashboard'])->name('home');
     //vehicles
     Route::get('vehicles', [VehicleController::class, 'index'])->name('vehicles');
     Route::get('vehicles/create', [VehicleController::class, 'create'])->name('create-vehicle');
@@ -61,5 +75,19 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::view('statistics', 'admin.statistics')->name('statistics');
     Route::view('assistance', 'admin.assistance')->name('assistance');
     Route::view('settings', 'admin.settings')->name('settings');
-    Route::view('logout', 'admin.logout')->name('logout');
+    //logout
+    Route::get('logout', [AdminController::class, 'logout'])->name('logout');
+});
+
+Route::middleware('driver')->prefix('driver')->name('driver.')->group(function () {
+    Route::get('dashboard', [DriverController::class, 'dashboard'])->name('home');
+    // logout
+    Route::get('logout', [DriverController::class, 'logout'])->name('logout');
+});
+
+
+Route::middleware('client')->prefix('client')->name('client.')->group(function () {
+    Route::get('dashboard', [ClientController::class, 'dashboard'])->name('home');
+    // logout
+    Route::get('logout', [ClientController::class, 'logout'])->name('logout');
 });

@@ -92,6 +92,7 @@
                                 <div class="form-div w-full">
                                     <label for="avatar" class="form-label">URL Photo</label>
                                     <input type="text" id="avatar" name="avatar" class="form-input">
+                                    <input type="hidden" name="password" value="passer">
                                 </div>
 
                             </div>
@@ -100,7 +101,8 @@
                         <button type="submit" class="btn-primary">Enregistrer
                             <svg class="icon " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
                                     d="M12 11v5m0 0 2-2m-2 2-2-2M3 6v1c0 .6.4 1 1 1h16c.6 0 1-.4 1-1V6c0-.6-.4-1-1-1H4a1 1 0 0 0-1 1Zm2 2v10c0 .6.4 1 1 1h12c.6 0 1-.4 1-1V8H5Z" />
                             </svg>
                         </button>

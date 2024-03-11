@@ -20,6 +20,14 @@
     @apply bg-third hover:bg-fourth hover:text-third w-full border hover:border-third  rounded-2xl text-white flex items-center justify-center gap-3 p-3;
 }
 
+.btn-primary-drv {
+    @apply bg-accent2 hover:bg-fourth hover:text-accent2 w-full border hover:border-accent2   rounded-2xl text-white flex items-center justify-center gap-3 p-3;
+}
+
+.btn-primary-clt {
+    @apply bg-accent1 hover:bg-fourth hover:text-accent1 w-full border hover:border-accent1  rounded-2xl text-white flex items-center justify-center gap-3 p-3;
+}
+
 .btn-secondary {
     @apply bg-third hover:bg-fourth hover:text-third border hover:border-third rounded-2xl text-white flex items-center justify-center gap-3 p-2;
 }
