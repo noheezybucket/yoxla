@@ -22,7 +22,7 @@
                         </a>
                     </div>
 
-                    <form action="{{ route('admin.create-rental-treatment') }}" method="POST" class=" space-y-5">
+                    <form action="{{ route('client.create-rental-treatment') }}" method="POST" class=" space-y-5">
                         @if (session('status'))
                             <div class="success">{{ session('status') }}</div>
                         @endif

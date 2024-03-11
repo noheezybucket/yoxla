@@ -5,7 +5,7 @@
         </h1>
     </div>
 
-    {{-- <div class="bg-second flex border  p-1 rounded-full ">
+    <div class="bg-second flex border  p-1 rounded-full ">
         <div class="bg-white py-1 rounded-3xl w-10 h-10 flex justify-center items-center">
             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="none" viewBox="0 0 24 24">
@@ -15,16 +15,12 @@
         </div>
 
         <div class="text-third  flex  items-center">
-            <p class="text-center w-[200px] ">Recherche</p>
+            <input class="text-center w-[200px] block bg-second focus:outline-none" placeholder="Recherche" />
         </div>
-    </div> --}}
+    </div>
 
-    <div class="flex items-center gap-1">
-        {{-- <span>Dakar,Sénégal</span> --}}
-        <div><x-far-user class="icon " /></div>
-        <div class="flex flex-col">
-            <span class="font-semibold">Admin</span>
-            {{-- <span class="font-light text-sm">Dakar, Senegal</span> --}}
-        </div>
+    <div class="flex gap-1">
+        <div><x-fas-power-off class="icon text-red-600" /></div>
+        <a wire:navigate href="{{ route('admin.logout') }}" class="font-light  text-red-600">Déconnexion</a>
     </div>
 </header>

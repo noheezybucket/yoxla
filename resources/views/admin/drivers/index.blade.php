@@ -37,6 +37,9 @@
                                     <h2 class="font-bold text-3xl">{{ $driver->fullname }}
                                         {{-- <span class="font-normal">{{ explode(' ', $driver->fullname)[1] }}</span> --}}
                                     </h2>
+                                    <h2 class=" text-3xl">
+                                        {{ $driver->salary }} XOF
+                                    </h2>
                                     <h3>{{ $driver->years_of_xp }} années d'experience</h3>
                                     <h3>Catégorie de permis : <span
                                             class="font-normal">{{ $driver->license_category }}</span>

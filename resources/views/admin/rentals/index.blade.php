@@ -8,13 +8,13 @@
         <div class="flex gap-5">
             @include('components.admin-menu')
 
-            <div class="w-full h-[70vh] space-y-10">
+            <div class="w-full space-y-5">
                 <div class="flex justify-between items-center">
                     <h1 class="font-bold text-2xl">Locations</h1>
                     <a wire:navigate.hover href="{{ route('admin.create-rental') }}" class="btn-secondary">Créer une
                         location <x-fas-plus class="icon mr-0" /></a>
                 </div>
-                <div>
+                <div class=" h-[70vh] overflow-auto p-2">
                     <div class="w-full flex justify-center overflow-auto">
                         <div class="flex flex-col border w-full">
                             <div class="w-full">
@@ -54,7 +54,8 @@
                                                         {{ $rental->id }}
                                                     </td>
                                                     <td class="px-6 py-4 text-sm ">
-                                                        <img src="{{ $rental->vehicle->photos }}" alt="">
+                                                        <img src="{{ $rental->vehicle->photos }}" alt=""
+                                                            class="max-w-[100px]">
                                                     </td>
                                                     <td class="px-6 py-4">
                                                         {{ $rental->client_fullname }}
@@ -72,7 +73,7 @@
                                                     </td>
 
                                                     <td class="px-6 py-4 space-x-2 flex items-center justify-center h-full">
-                                                        <a href="{{ route('admin.show-rental', ['id' => $rental->id]) }}"
+                                                        {{-- <a href="{{ route('admin.show-rental', ['id' => $rental->id]) }}"
                                                             class="p-3 text-second bg-third rounded-xl  flex justify-center">
                                                             <svg class="w-6 h-6 inline-block dark:text-white"
                                                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +83,7 @@
                                                                 <path stroke="currentColor" stroke-width="2"
                                                                     d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                                             </svg>
-                                                        </a>
+                                                        </a> --}}
                                                         <a href="{{ route('admin.update-rental', ['id' => $rental->id]) }}"
                                                             class="p-3 text-yellow-600 bg-yellow-200 rounded-xl flex justify-center">
                                                             <svg class="w-6 h-6 inline-block dark:text-white"

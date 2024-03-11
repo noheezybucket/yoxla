@@ -18,13 +18,8 @@
             <p class="text-center w-[200px] ">Recherche</p>
         </div>
     </div> --}}
-
-    <div class="flex items-center gap-1">
-        {{-- <span>Dakar,Sénégal</span> --}}
-        <div><x-far-user class="icon " /></div>
-        <div class="flex flex-col">
-            <span class="font-semibold">Client</span>
-            {{-- <span class="font-light text-sm">Dakar, Senegal</span> --}}
-        </div>
+    <div class="flex gap-1">
+        <div><x-fas-power-off class="icon text-red-600" /></div>
+        <a wire:navigate href="{{ route('client.logout') }}" class="font-light  text-red-600">Déconnexion</a>
     </div>
 </header>

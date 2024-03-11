@@ -10,6 +10,8 @@
         </a>
 
 
+
+
         {{-- rent --}}
         {{-- <a wire:navigate.hover href="{{ route('admin.rentals') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/rentals*') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
@@ -51,7 +53,7 @@
 
         {{-- logout --}}
         <a wire:navigate href="{{ route('driver.logout') }}"
-            class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/logout') ? 'bg-red-600 text-white' : 'text-red-600 dark:text-white hover:bg-red-600' }}">
+            class="block p-2 rounded-2xl hover:text-white text-red-600 dark:text-white hover:bg-red-600">
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

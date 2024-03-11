@@ -47,9 +47,10 @@ class DriverController extends Controller
             'license_number' => 'required|unique:drivers,license_number',
             'phonenumber' => 'required',
             'license_category' => 'required',
-            'license_emission_date' => 'required',
-            'license_expiration_date' => 'required',
+            'license_emission_date' => 'required|date',
+            'license_expiration_date' => 'required|date|after:license_emission_date',
             'avatar' => 'nullable',
+            'salary' => 'required',
             'password' => 'required'
         ]);
 
@@ -62,6 +63,7 @@ class DriverController extends Controller
             'license_emission_date' => $request->license_emission_date,
             'license_expiration_date' => $request->license_expiration_date,
             'avatar' => $request->avatar,
+            'salary' => $request->salary,
             'password' => Hash::make($request->password)
         ]);
 
@@ -91,6 +93,8 @@ class DriverController extends Controller
             'license_emission_date' => 'required',
             'license_expiration_date' => 'required',
             'avatar' => 'nullable',
+            'salary' => 'required',
+
 
         ]);
 

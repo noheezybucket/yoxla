@@ -19,12 +19,8 @@
         </div>
     </div> --}}
 
-    <div class="flex items-center gap-1">
-        {{-- <span>Dakar,Sénégal</span> --}}
-        <div><x-far-user class="icon text-accent2" /></div>
-        <div class="flex flex-col">
-            <span class="font-semibold">Mon Compte</span>
-            {{-- <a wire:navigate href="{{ route('driver.logout') }}" class="font-light text-sm text-red-600">Déconnexion</a> --}}
-        </div>
+    <div class="flex gap-1">
+        <div><x-fas-power-off class="icon text-red-600" /></div>
+        <a wire:navigate href="{{ route('driver.logout') }}" class="font-light  text-red-600">Déconnexion</a>
     </div>
 </header>

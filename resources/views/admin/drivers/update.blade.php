@@ -62,14 +62,22 @@
                                 </div>
                             </div>
 
-                            <div class="form-div w-full">
-                                <label for="license_category" class="form-label">Catégorie du permis</label>
+                            <div class="form-div-row">
 
-                                <select name="license_category" id="license_category" class="form-input">
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="AB">AB</option>
-                                </select>
+                                <div class="form-div w-full">
+                                    <label for="license_category" class="form-label">Catégorie du permis</label>
+
+                                    <select name="license_category" id="license_category" class="form-input">
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="AB">AB</option>
+                                    </select>
+                                </div>
+                                <div class="form-div w-full">
+                                    <label for="salary" class="form-label">Salaire</label>
+                                    <input type="number" id="salary" name="salary" class="form-input"
+                                        value="{{ $driver->salary }}">
+                                </div>
                             </div>
 
                             <div>

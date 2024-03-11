@@ -55,7 +55,7 @@
                                 <div class="flex justify-center">
 
                                     <img src="{{ $vehicle->photos }}" alt=""
-                                        class="max-w-[300px] w-full object-contain">
+                                        class="max-w-[350px] w-full object-contain">
                                     <div class="flex flex-col justify-center">
                                         <div class="flex flex-col">
                                             <span class="font-bold text-2xl">{{ $vehicle->brand }}</span>

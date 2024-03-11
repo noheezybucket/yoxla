@@ -8,8 +8,9 @@
         <div class="flex gap-5">
             @include('components.admin-menu')
             <div class="w-full space-y-5 overflow-y-auto">
-                <div class="shadow-lg border rounded-2xl p-4 font-bold">Bienvenue sur votre dashboard, Mouhamad</div>
-
+                <div class="flex justify-between items-center">
+                    <h1 class="font-bold text-2xl">Dashboard</h1>
+                </div>
                 <div class="">
                     <table class="table">
 
