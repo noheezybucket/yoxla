@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Client;
+use App\Models\Driver;
+use App\Models\Rental;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -37,10 +41,12 @@ class AdminController extends Controller
 
     function dashboard()
     {
-        $admin = auth()->guard('admin')->user();
-        if ($admin) {
-            return view('admin.home', compact('admin'));
-        }
+        $rentals = Rental::all();
+        $drivers = Driver::all();
+        $vehicles = Vehicle::all();
+        $clients = Client::all();
+
+        return view('admin.home', compact('rentals', 'drivers', 'vehicles', 'clients'));
     }
     function logout()
     {
