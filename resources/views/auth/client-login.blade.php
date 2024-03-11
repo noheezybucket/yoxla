@@ -2,7 +2,7 @@
 @section('title', 'Connexion')
 
 @section('auth-img')
-    <img src="{{ asset('assets/urus.avif') }}" class="w-full h-[100%]  object-contain rounded-2xl" alt="Vote">
+    <img src="{{ asset('assets/rover.png') }}" class="w-full h-[100%]  object-contain rounded-2xl" alt="Vote">
 @endsection
 
 @section('auth-form')
@@ -10,12 +10,13 @@
 
         <div class="flex items-center justify-center">
             {{-- <x-fas-map-pin class="icon" /> --}}
-            <h1 class="text-center text-2xl font-bold text-third">yoxlā</h1>
+            <h1 class="text-center text-2xl font-bold text-accent1">yoxlā</h1>
 
         </div>
+
         <hr class="my-2 w-1/2 mx-auto">
 
-        <h2 class="text-3xl text-center">Connexion</h2>
+        <h2 class="text-3xl text-center">Dalàl ak jam</h2>
 
         <div class="my-2">
             @if ($errors->any())
@@ -33,7 +34,7 @@
             @endif
         </div>
 
-        <form id="login-form" action="{{ route('auth.do-admin-login') }}" method="POST">
+        <form id="login-form" action="{{ route('auth.do-client-login') }}" method="POST">
             @csrf
             <div class="form-div">
                 <label for="email" class="form-label">Email</label>
@@ -47,10 +48,17 @@
             </div>
 
             <div class=" mb-4">
-                <button type="submit" class="btn-primary" id="login-btn">Se connecter
+                <button type="submit" class="btn-primary-clt" id="login-btn">Se connecter
                     <x-fas-arrow-right-to-bracket class="icon" />
 
                 </button>
+            </div>
+
+
+            <div>
+                <p class="mt-2">Vous n'avez pas de compte?
+                    <a href="{{ route('auth.client_register') }}" class="link">Inscrivez-vous facilement ici</a>
+                </p>
             </div>
         </form>
     </div>

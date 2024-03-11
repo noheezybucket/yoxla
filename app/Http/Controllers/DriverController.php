@@ -122,4 +122,10 @@ class DriverController extends Controller
             return back();
         }
     }
+
+    function logout()
+    {
+        Auth::guard('driver')->logout();
+        return redirect()->route('auth.driver-login');
+    }
 }

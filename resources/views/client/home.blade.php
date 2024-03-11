@@ -3,10 +3,10 @@
 
 @section('content')
     <div class="mx-10">
-        @include('components.admin-header')
+        @include('components.client-header')
 
         <div class="flex gap-5">
-            @include('components.admin-menu')
+            @include('components.client-menu')
             <div class="w-full space-y-5 overflow-y-auto">
                 <div class="shadow-lg border rounded-2xl p-4 font-bold">Bienvenue sur votre dashboard, client</div>
 

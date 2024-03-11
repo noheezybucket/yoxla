@@ -53,7 +53,7 @@
         </a>
 
         {{-- search --}}
-        <a wire:navigate.hover href="{{ route('admin.statistics') }}"
+        {{-- <a wire:navigate.hover href="{{ route('admin.statistics') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/statistics*') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
 
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -61,7 +61,7 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
                     d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
             </svg>
-        </a>
+        </a> --}}
 
     </div>
 
@@ -77,7 +77,7 @@
         </a>
 
         {{-- settings --}}
-        <a wire:navigate href="{{ route('admin.settings') }}"
+        {{-- <a wire:navigate href="{{ route('admin.settings') }}"
             class="block p-2 rounded-2xl hover:text-white {{ request()->is('admin/settings*') ? 'bg-third text-white' : 'text-third dark:text-white hover:bg-third' }}">
             <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                 viewBox="0 0 24 24">
@@ -86,7 +86,7 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
             </svg>
-        </a>
+        </a> --}}
 
         {{-- logout --}}
         <a wire:navigate href="{{ route('admin.logout') }}"

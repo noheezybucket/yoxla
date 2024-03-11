@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\VehicleController;
@@ -31,9 +32,11 @@ Route::prefix('auth')->name('auth.')->group(function () {
     Route::post('driver_login', [DriverController::class, 'login'])->name('do-driver-login');
 
     // client
+    Route::get('client_login', [ClientController::class, 'client_login_form'])->name('client-login');
+    Route::post('client_login', [ClientController::class, 'login'])->name('do-client-login');
 
-
-    Route::view('register', 'auth.register')->name('register');
+    Route::view('client_register', 'auth.client-register')->name('client_register');
+    Route::post('client_register', [ClientController::class, 'register'])->name('do-client-register');
 });
 
 
@@ -78,4 +81,13 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
 
 Route::middleware('driver')->prefix('driver')->name('driver.')->group(function () {
     Route::get('dashboard', [DriverController::class, 'dashboard'])->name('home');
+    // logout
+    Route::get('logout', [DriverController::class, 'logout'])->name('logout');
+});
+
+
+Route::middleware('client')->prefix('client')->name('client.')->group(function () {
+    Route::get('dashboard', [ClientController::class, 'dashboard'])->name('home');
+    // logout
+    Route::get('logout', [ClientController::class, 'logout'])->name('logout');
 });

@@ -50,6 +50,11 @@ return [
             'driver' => 'session',
             'provider' => 'drivers',
         ],
+
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'clients',
+        ],
     ],
 
     /*
@@ -83,6 +88,11 @@ return [
         'drivers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Driver::class,
+        ],
+
+        'clients' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Client::class,
         ],
 
         // 'users' => [
