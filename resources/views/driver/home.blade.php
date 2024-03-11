@@ -36,7 +36,7 @@
                                 </th>
 
                                 <th class="px-6 py-2 ">
-                                    Actions
+                                    Statut
                                 </th>
 
                             </tr>
@@ -63,13 +63,25 @@
                                     <td class="px-6 py-4 ">
                                         {{ $rental->ending_date }}
                                     </td>
+                                    <td class="px-6 py-4 ">
+                                        @if ($rental->status === 'pending')
+                                            <span class="bg-red-600 text-white p-3 rounded-2xl w-full">Non payé</span>
+                                        @else
+                                            <span class="bg-green-600 text-white p-3 rounded-2xl w-full">Payé</span>
+                                        @endif
+                                    </td>
 
-                                    <td class="px-6 py-4 space-x-2 flex items-center justify-center h-full">
+
+                                    {{-- <td class="px-6 py-4 ">
+                                        {{ $rental->ending_date }}
+                                    </td> --}}
+
+                                    {{-- <td class="px-6 py-4 space-x-2 flex items-center justify-center h-full">
                                         <a href="{{ route('admin.update-rental', ['id' => $rental->id]) }}"
                                             class="p-3 text-green-600 bg-green-200 rounded-xl flex justify-center">
                                             Terminer
                                         </a>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
 

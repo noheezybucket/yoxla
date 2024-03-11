@@ -78,4 +78,15 @@ class ClientController extends Controller
         Auth::guard('client')->logout();
         return redirect()->route('auth.client-login');
     }
+
+    function pay_rental_treatment($id)
+    {
+        $rental = Rental::find($id);
+
+        $rental->update([
+            'status' => 'paid'
+        ]);
+
+        return redirect()->route('client.home')->with('status', 'Location payé avec succès');
+    }
 }
