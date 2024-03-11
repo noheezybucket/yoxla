@@ -21,10 +21,10 @@
 
     <div class="flex items-center gap-1">
         {{-- <span>Dakar,Sénégal</span> --}}
-        <div><x-far-user class="icon " /></div>
+        <div><x-far-user class="icon text-accent2" /></div>
         <div class="flex flex-col">
-            <span class="font-semibold">Chauffeur</span>
-            {{-- <span class="font-light text-sm">Dakar, Senegal</span> --}}
+            <span class="font-semibold">Mon Compte</span>
+            {{-- <a wire:navigate href="{{ route('driver.logout') }}" class="font-light text-sm text-red-600">Déconnexion</a> --}}
         </div>
     </div>
 </header>

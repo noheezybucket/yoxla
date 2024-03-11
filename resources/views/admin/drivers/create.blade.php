@@ -36,18 +36,21 @@
                             <div class="form-div-row">
                                 <div class="form-div w-full">
                                     <label for="fullname" class="form-label">Nom complet</label>
-                                    <input type="text" id="fullname" name="fullname" class="form-input">
+                                    <input type="text" id="fullname" name="fullname" class="form-input"
+                                        value="{{ old('fullname') }}">
                                 </div>
                                 <div class="form-div w-full">
                                     <label for="phonenumber" class="form-label">N° Téléphone</label>
-                                    <input type="text" id="phonenumber" name="phonenumber" class="form-input">
+                                    <input type="text" id="phonenumber" name="phonenumber" class="form-input"
+                                        value="{{ old('phonenumber') }}">
                                 </div>
                             </div>
 
                             <div class="form-div-row">
                                 <div class="form-div w-full">
                                     <label for="license_number" class="form-label">N° Permis</label>
-                                    <input type="number" id="license_number" name="license_number" class="form-input">
+                                    <input type="number" id="license_number" name="license_number" class="form-input"
+                                        value="{{ old('license_number') }}">
                                 </div>
                                 <div class="form-div w-full">
                                     <label for="years_of_xp" class="form-label">Années d'expérience</label>
@@ -79,19 +82,20 @@
                                         <label for="license_emission_date" class="form-label">Date d'émission du
                                             permis</label>
                                         <input type="date" id="license_emission_date" name="license_emission_date"
-                                            class="form-input">
+                                            class="form-input" value="{{ old('license_emission_date') }}">
                                     </div>
                                     <div class="form-div w-full">
                                         <label for="license_expiration_date" class="form-label">Date d'expiration du
                                             permis</label>
                                         <input type="date" id="license_expiration_date" name="license_expiration_date"
-                                            class="form-input">
+                                            class="form-input" value="{{ old('license_expiration_date') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-div w-full">
                                     <label for="avatar" class="form-label">URL Photo</label>
-                                    <input type="text" id="avatar" name="avatar" class="form-input">
+                                    <input type="text" id="avatar" name="avatar" class="form-input"
+                                        value="{{ old('avatar') }}">
                                     <input type="hidden" name="password" value="passer">
                                 </div>
 

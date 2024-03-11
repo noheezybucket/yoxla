@@ -66,8 +66,8 @@ class RentalController extends Controller
             'client_phonenumber' => 'required',
             'starting_point' => 'required',
             'ending_point' => 'required',
-            'starting_date' => 'required',
-            'ending_date' => 'required',
+            'starting_date' => 'required|date|after_or_equal:today',
+            'ending_date' => 'required|date|after:starting_date',
         ]);
 
         $rental->update($request->all());

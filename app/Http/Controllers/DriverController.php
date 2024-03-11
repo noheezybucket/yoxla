@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Driver;
+use App\Models\Rental;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -12,7 +13,18 @@ class DriverController extends Controller
 {
     function dashboard()
     {
-        return view('driver.home');
+        $user = auth()->guard('driver')->user();
+
+        $driver = Driver::find($user->id);
+
+        $rentals = [];
+
+        if ($driver->vehicle !== null) {
+
+            $rentals = Rental::where('vehicle_id', $driver->vehicle->id)->get();
+        }
+
+        return view('driver.home', compact('rentals'));
     }
 
     function index()
@@ -32,7 +44,7 @@ class DriverController extends Controller
         $request->validate([
             'fullname' => 'required',
             'years_of_xp' => 'required',
-            'license_number' => 'required',
+            'license_number' => 'required|unique:drivers,license_number',
             'phonenumber' => 'required',
             'license_category' => 'required',
             'license_emission_date' => 'required',
