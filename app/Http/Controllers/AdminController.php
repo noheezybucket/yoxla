@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\StatsChart;
 use App\Models\Admin;
 use App\Models\Client;
 use App\Models\Driver;
@@ -46,11 +47,36 @@ class AdminController extends Controller
         $vehicles = Vehicle::all();
         $clients = Client::all();
 
-        return view('admin.home', compact('rentals', 'drivers', 'vehicles', 'clients'));
+        $driver = Driver::pluck('salary', 'created_at');
+        $chart = new StatsChart;
+        $chart->labels($driver->keys());
+        $chart->dataset('Evolution des salaires', 'bar', $driver->values())->backgroundColor("#3A80F4");
+
+        $rental = Rental::pluck('price', 'created_at');
+        $chart2 = new StatsChart;
+        $chart2->labels($rental->keys());
+        $chart2->dataset('Locations journalières', 'line', $rental->values())->backgroundColor('#F4723A');
+
+        return view('admin.home', compact('rentals', 'drivers', 'vehicles', 'clients', 'chart', 'chart2'));
     }
     function logout()
     {
         Auth::guard('admin')->logout();
         return redirect()->route('auth.admin-login');
+    }
+
+    function stats()
+    {
+        $driver = Driver::pluck('salary', 'created_at');
+        $chart = new StatsChart;
+        $chart->labels($driver->keys());
+        $chart->dataset('Evolution des salaires', 'bar', $driver->values())->backgroundColor("#3A80F4");
+
+        $rental = Rental::pluck('price', 'created_at');
+        $chart2 = new StatsChart;
+        $chart2->labels($rental->keys());
+        $chart2->dataset('Locations journalières', 'doughnut', $rental->values())->backgroundColor(['#F4723A', '#3A80F4', '#11B990', '#ECECEC']);
+
+        return view('admin.statistics', compact('chart', 'chart2'));
     }
 }

@@ -72,7 +72,7 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('rentals/delete/{id}', [RentalController::class, 'delete'])->name('delete-rental');
     Route::delete('rentals/delete/{id}', [RentalController::class, 'destroy'])->name('delete-rental-treatment');
 
-    Route::view('statistics', 'admin.statistics')->name('statistics');
+    Route::get('statistics', [AdminController::class, 'stats'])->name('statistics');
     Route::view('assistance', 'admin.assistance')->name('assistance');
     Route::view('settings', 'admin.settings')->name('settings');
     //logout
