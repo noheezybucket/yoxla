@@ -7,7 +7,7 @@
 
         <div class="flex gap-5">
             @include('components.admin-menu')
-            <div class="w-2/4 mx-auto space-y-5">
+            <div class="w-full space-y-5  overflow-y-auto h-[80vh] pr-2">
                 <div class="flex justify-between">
                     <a wire:navigate.hover href="{{ route('admin.drivers') }}" class="font-bold text-xl flex items-center">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
@@ -62,8 +62,9 @@
 
                     <div class="w-full">
 
-                        <div class="flex flex-col mb-2">
+                        <div class="flex justify-between mb-2">
                             <span class="text-4xl font-bold">{{ $driver->fullname }}</span>
+                            <span class="text-4xl font-bold">{{ $driver->salary }} XOF</span>
                         </div>
 
                         <div class="space-y-1 w-full">
@@ -113,7 +114,70 @@
                         </div>
                     </div>
 
+
                 </div>
+                @if ($driver->vehicle)
+
+                    <div>
+                        <h2 class="text-2xl font-bold">Locations</h2>
+                        <table class="divide-y w-full">
+                            <thead>
+                                <tr>
+                                    <th class="px-6 py-2 ">
+                                        ID
+                                    </th>
+                                    <th class="px-6 py-2 ">
+                                        Nom du client
+                                    </th>
+                                    <th class="px-6 py-2 ">
+                                        N°Téléphone du client
+                                    </th>
+                                    <th class="px-6 py-2 ">
+                                        Date/Heure de début
+                                    </th>
+                                    <th class="px-6 py-2 ">
+                                        Date/Heure de fin
+                                    </th>
+                                    <th class="px-6 py-2 ">
+                                        Statut
+                                    </th>
+
+
+
+                                </tr>
+                            </thead>
+                            @foreach ($driver->vehicle->rental as $rental)
+                                <tbody>
+                                    <tr class="whitespace-nowrap text-center">
+                                        <td class="px-6 py-4 text-sm ">
+                                            {{ $rental->id }}
+                                        </td>
+
+                                        <td class="px-6 py-4">
+                                            {{ $rental->client_fullname }}
+
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $rental->client_phonenumber }}
+
+                                        </td>
+                                        <td class="px-6 py-4 ">
+                                            {{ $rental->starting_date }}
+                                        </td>
+                                        <td class="px-6 py-4 ">
+                                            {{ $rental->ending_date }}
+                                        </td>
+                                        <td class="px-6 py-4 ">
+                                            {{ $rental->status }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            @endforeach
+                        </table>
+
+                    </div>
+                @endif
+
             </div>
         </div>
 

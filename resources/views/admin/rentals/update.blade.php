@@ -39,12 +39,12 @@
                                 <div class="form-div w-full">
                                     <label for="client_fullname" class="form-label">Nom complet</label>
                                     <input type="text" id="client_fullname" name="client_fullname" class="form-input"
-                                        value="{{ $rental->client_fullname }}">
+                                        value="{{ $rental->client_fullname }}" readonly>
                                 </div>
                                 <div class="form-div w-full">
                                     <label for="client_phonenumber" class="form-label">N° Téléphone</label>
                                     <input type="number" id="client_phonenumber" name="client_phonenumber"
-                                        class="form-input" value="{{ $rental->client_phonenumber }}">
+                                        class="form-input" value="{{ $rental->client_phonenumber }}" readonly>
                                 </div>
                             </div>
 
@@ -70,7 +70,7 @@
                                 <label for="vehicle_id" class="form-label">Voitures disponibles</label>
                                 <select name="vehicle_id" id="vehicle_id" class="form-input">
                                     <option selected value="{{ $rental->vehicle_id }}">{{ $rental->vehicle->brand }} -
-                                        {{ $rental->vehicle->driver }} </option>
+                                        {{ $rental->vehicle->driver->fullname }} </option>
                                     @if (count($vehicles) > 0)
                                         @foreach ($vehicles as $vehicle)
                                             @if ($vehicle->status === 'available' && $vehicle->driver_id > 0)

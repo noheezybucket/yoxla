@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Driver;
+use App\Models\Rental;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -12,7 +13,18 @@ class DriverController extends Controller
 {
     function dashboard()
     {
-        return view('driver.home');
+        $user = auth()->guard('driver')->user();
+
+        $driver = Driver::find($user->id);
+
+        $rentals = [];
+
+        if ($driver->vehicle !== null) {
+
+            $rentals = Rental::where('vehicle_id', $driver->vehicle->id)->get();
+        }
+
+        return view('driver.home', compact('rentals'));
     }
 
     function index()
@@ -32,12 +44,13 @@ class DriverController extends Controller
         $request->validate([
             'fullname' => 'required',
             'years_of_xp' => 'required',
-            'license_number' => 'required',
+            'license_number' => 'required|unique:drivers,license_number',
             'phonenumber' => 'required',
             'license_category' => 'required',
-            'license_emission_date' => 'required',
-            'license_expiration_date' => 'required',
+            'license_emission_date' => 'required|date',
+            'license_expiration_date' => 'required|date|after:license_emission_date',
             'avatar' => 'nullable',
+            'salary' => 'required',
             'password' => 'required'
         ]);
 
@@ -50,6 +63,7 @@ class DriverController extends Controller
             'license_emission_date' => $request->license_emission_date,
             'license_expiration_date' => $request->license_expiration_date,
             'avatar' => $request->avatar,
+            'salary' => $request->salary,
             'password' => Hash::make($request->password)
         ]);
 
@@ -79,6 +93,8 @@ class DriverController extends Controller
             'license_emission_date' => 'required',
             'license_expiration_date' => 'required',
             'avatar' => 'nullable',
+            'salary' => 'required',
+
 
         ]);
 

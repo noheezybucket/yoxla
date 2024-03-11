@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Rental;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +15,23 @@ class ClientController extends Controller
 
     function dashboard()
     {
-        return view('client.home');
+        $user = auth()->guard('client')->user();
+
+        $client = Client::find($user->id);
+
+        $rentals = [];
+
+        if ($client) {
+
+            $rentals = Rental::where('client_fullname', $client->fullname)->get();
+        }
+
+        return view('client.home', compact('rentals'));
+    }
+
+    function create_rental()
+    {
+        return view('client.create-rental');
     }
 
     function client_login_form()

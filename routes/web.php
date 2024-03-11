@@ -88,6 +88,8 @@ Route::middleware('driver')->prefix('driver')->name('driver.')->group(function (
 
 Route::middleware('client')->prefix('client')->name('client.')->group(function () {
     Route::get('dashboard', [ClientController::class, 'dashboard'])->name('home');
+    Route::get('create-rental', [ClientController::class, 'create_rental'])->name('create-rental');
+    Route::post('create-rental', [ClientController::class, 'create_rental_treatment'])->name('create-rental-treatment');
     // logout
     Route::get('logout', [ClientController::class, 'logout'])->name('logout');
 });

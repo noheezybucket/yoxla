@@ -119,7 +119,8 @@
                             <select name="driver_id" id="driver_id" class="form-input">
                                 <option selected></option>
                                 @foreach ($drivers as $driver)
-                                    @if ($driver->status === 'available')
+                                    {{-- @if ($driver->status === 'available') --}}
+                                    @if (date('Y-m-d H:i:s') < $driver->license_expiration_date)
                                         <option value="{{ $driver->id }}">{{ $driver->fullname }}</option>
                                     @endif
                                 @endforeach

@@ -30,7 +30,7 @@ class VehicleController extends Controller
             'seats' => 'required',
             'purchase_date' => 'required',
             'mileage' => 'required',
-            'registration' => 'required',
+            'registration' => 'required|unique:vehicles,registration',
             'type' => 'required',
             'gearbox' => 'required',
             'daily_price' => 'required',
