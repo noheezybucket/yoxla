@@ -92,6 +92,9 @@
                                         @else
                                             <span>-</span>
                                         @endif
+
+                                        {{-- <button class="buy" onclick="buy(this)"
+                                            data-id-transaction="{{ $rental->id }}">Payer</button> --}}
                                     </td>
                                 </tr>
                             @endforeach
@@ -104,3 +107,24 @@
 
     </div>
 @endsection
+
+{{-- <script>
+    function buy(btn) {
+        var idTransaction = pQuery(btn).attr('data-id-transaction');
+        (new PayTech({
+            idTransaction: idTransaction,
+        })).withOption({
+            requestTokenUrl: 'http://127.0.0.1:8000/client/dashboard',
+            method: 'POST',
+            headers: {},
+            prensentationMode: PayTech.OPEN_IN_POPUP,
+            didReceiveError: function(error) {
+                console.log(error);
+            },
+            didReceiveNonSuccessResponse: function(jsonResponse) {
+                console.log(jsonResponse);
+            }
+        }).send();
+        //.send params are optional
+    }
+</script> --}}

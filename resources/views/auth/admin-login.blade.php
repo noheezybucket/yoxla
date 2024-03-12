@@ -15,7 +15,7 @@
         </div>
         <hr class="my-2 w-1/2 mx-auto">
 
-        <h2 class="text-3xl text-center">Connexion</h2>
+        <h2 class="text-3xl text-center">Dalàl ak jam</h2>
 
         <div class="my-2">
             @if ($errors->any())

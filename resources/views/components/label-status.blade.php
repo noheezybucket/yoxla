@@ -3,7 +3,7 @@
         @if (date('Y-m-d H:i:s') >= $rent->starting_date &&
                 $rent->ending_date >= date('Y-m-d H:i:s') &&
                 ($vehicle->status = 'unavailable'))
-            {{-- <span class="unavailable label">En location</span> --}}
+            <span class="unavailable label"> Loué le {{ $rent->starting_date }}</span>
             {{-- @else
             <span class="available label">Disponible</span> --}}
         @endif
@@ -11,8 +11,9 @@
 @else
     @if ($vehicle->status == 'breakdown')
         <span class="breakdown label">En panne</span>
-    @elseif($vehicle->status == 'unavailable')
+    @elseif($vehicle->status == 'available')
         <span class="available label">Disponible</span>
     @endif
+
 
 @endif
