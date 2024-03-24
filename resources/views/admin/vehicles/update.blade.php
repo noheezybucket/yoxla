@@ -110,6 +110,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-div w-full">
+                            <label for="status" class="input-label">Statut</label>
+                            <select name="status" id="status" class="form-input">
+                                <option selected>Selectionner un statut</option>
+                                <option value="available">Disponible</option>
+                                <option value="breakdown">En panne</option>
+                            </select>
+                        </div>
                     </fieldset>
 
                     <fieldset class="field">

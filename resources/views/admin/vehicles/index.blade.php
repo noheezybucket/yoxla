@@ -95,7 +95,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="w-2/3 p-2 space-y-4 overflow-y-scroll">
+                <div class="w-2/3 p-2 space-y-4 overflow-y-auto">
                     <div class="flex justify-between items-center">
                         <h1 class="font-bold text-2xl">Véhicules</h1>
                         <a wire:navigate.hover href="{{ route('admin.create-vehicle') }}" class="btn-secondary">Ajouter un

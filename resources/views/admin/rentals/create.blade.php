@@ -81,17 +81,14 @@
                                     <option selected>Sélectionner un véhicule à louer</option>
                                     @if (count($vehicles) > 0)
                                         @foreach ($vehicles as $vehicle)
-                                            @if ($vehicle->driver !== null)
+                                            @if ($vehicle->driver !== null && $vehicle->status !== 'breakdown')
                                                 <option value="{{ $vehicle->id }}">
-
                                                     {{ $vehicle->driver->fullname }} -
                                                     {{ $vehicle->brand }} {{ $vehicle->model }}
                                                 </option>
                                             @endif
                                         @endforeach
                                     @endif
-
-
                                 </select>
                             </div>
 

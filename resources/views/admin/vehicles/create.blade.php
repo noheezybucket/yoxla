@@ -36,16 +36,19 @@
                             <div class="form-div-row">
                                 <div class="form-div w-full">
                                     <label for="brand" class="form-label">Marque</label>
-                                    <input type="text" id="brand" name="brand" class="form-input">
+                                    <input type="text" id="brand" name="brand" class="form-input"
+                                        value="{{ old('brand') }}">
                                 </div>
                                 <div class="form-div w-full">
                                     <label for="model" class="form-label">Model</label>
-                                    <input type="text" id="model" name="model" class="form-input">
+                                    <input type="text" id="model" name="model" class="form-input"
+                                        value="{{ old('model') }}">
                                 </div>
 
                                 <div class="form-div w-full">
                                     <label for="seats" class="form-label">Nombre de sièges</label>
-                                    <input type="number" id="seats" name="seats" class="form-input">
+                                    <input type="number" id="seats" name="seats" class="form-input"
+                                        value="{{ old('seats') }}">
                                 </div>
                             </div>
 
@@ -55,18 +58,21 @@
 
                                     <div class="form-div w-full">
                                         <label for="purchase_date" class="form-label">Date d'achat du véhicule</label>
-                                        <input type="date" id="purchase_date" name="purchase_date" class="form-input">
+                                        <input type="date" id="purchase_date" name="purchase_date" class="form-input"
+                                            value="{{ old('purchase_date') }}">
                                     </div>
 
                                     <div class="form-div w-full">
                                         <label for="mileage" class="form-label">Kilométrage à l'achat</label>
-                                        <input type="number" id="mileage" name="mileage" class="form-input">
+                                        <input type="number" id="mileage" name="mileage" class="form-input"
+                                            value="{{ old('mileage') }}">
                                     </div>
                                 </div>
 
                                 <div class="form-div w-full">
                                     <label for="registration" class="form-label">Immatriculation</label>
-                                    <input type="number" id="registration" name="registration" class="form-input">
+                                    <input type="number" id="registration" name="registration" class="form-input"
+                                        value="{{ old('registration') }}">
                                 </div>
 
                                 <div class="form-div w-full">
@@ -96,7 +102,8 @@
                                         </div>
                                         <div>
                                             <label for="color" class="form-label">Couleur</label>
-                                            <input type="color" id="color" name="color" class="">
+                                            <input type="color" id="color" name="color" class=""
+                                                value="{{ old('color') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -110,14 +117,13 @@
                                 <select name="driver_id" id="driver_id" class="form-input">
                                     <option selected></option>
                                     @foreach ($drivers as $driver)
-                                        @if (date('Y-m-d H:i:s') < $driver->license_expiration_date)
+                                        @if (date('Y-m-d H:i:s') < $driver->license_expiration_date && $driver->vehicle === null)
                                             <option value="{{ $driver->id }}">{{ $driver->fullname }}</option>
                                         @endif
                                     @endforeach
                                 </select>
                             </div>
                         </fieldset>
-
 
                         {{-- tarification --}}
                         <fieldset class="field">
@@ -126,11 +132,13 @@
 
                                 <div class="form-div w-full">
                                     <label for="daily_price" class="form-label">Tarif journalier</label>
-                                    <input type="number" id="daily_price" name="daily_price" class="form-input">
+                                    <input type="number" id="daily_price" name="daily_price" class="form-input"
+                                        value="{{ old('daily_price') }}">
                                 </div>
                                 <div class="form-div w-full">
                                     <label for="hourly_price" class="form-label">Tarif horaire</label>
-                                    <input type="text" id="hourly_price" name="hourly_price" class="form-input">
+                                    <input type="text" id="hourly_price" name="hourly_price" class="form-input"
+                                        value="{{ old('hourly_price') }}">
                                 </div>
                             </div>
                         </fieldset>
@@ -142,7 +150,8 @@
 
                                 <div class="form-div w-full">
                                     <label for="photos" class="form-label">URL Photos</label>
-                                    <input type="text" id="photos" name="photos" class="form-input">
+                                    <input type="text" id="photos" name="photos" class="form-input"
+                                        value="{{ old('photos') }}">
                                 </div>
 
                             </div>

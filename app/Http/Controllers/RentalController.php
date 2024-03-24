@@ -42,7 +42,7 @@ class RentalController extends Controller
         $vehicle = Vehicle::find($request->vehicle_id);
         $client = Client::where('email', $request->client_email)->first();
 
-        if (!$client) {
+        if ($client === null) {
             Client::create([
                 'fullname' => $request->client_fullname,
                 'phonenumber' => $request->client_phonenumber,

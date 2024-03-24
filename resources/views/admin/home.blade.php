@@ -13,7 +13,7 @@
                 </div>
                 <div class="h-[70vh] flex justify-between gap-5">
                     <div class="w-4/12">
-                        <div class="grid grid-cols-2 grid-rows-3 gap-5 h-full">
+                        <div class="grid grid-cols-2 grid-rows-2 gap-5 h-full">
                             <div class="text-center flex flex-col bg-third text-white rounded-2xl justify-center">
                                 <span class="text-6xl font-bold">{{ count($drivers) }}</span>
                                 <span class="text-xl">Chauffeurs</span>
@@ -30,14 +30,14 @@
                                 <span class="text-6xl font-bold">{{ count($vehicles) }}</span>
                                 <span class="text-xl">Voitures</span>
                             </div>
-                            <div class="text-center flex flex-col bg-third text-white rounded-2xl justify-center">
+                            {{-- <div class="text-center flex flex-col bg-third text-white rounded-2xl justify-center">
                                 <span class="text-6xl font-bold">450K</span>
                                 <span class="text-xl">Salaires (FCFA)</span>
                             </div>
                             <div class="text-center flex flex-col bg-third text-white rounded-2xl justify-center">
                                 <span class="text-6xl font-bold">2M</span>
                                 <span class="text-xl">C.A (FCFA)</span>
-                            </div>
+                            </div> --}}
 
                         </div>
 

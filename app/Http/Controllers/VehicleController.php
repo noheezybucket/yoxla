@@ -97,7 +97,8 @@ class VehicleController extends Controller
             'daily_price' => 'required',
             'hourly_price' => 'required',
             'photos' => 'required',
-            'driver_id' => 'nullable'
+            'driver_id' => 'nullable',
+            'status' => 'nullable'
         ]);
 
         $driver = Driver::find($request->driver_id);
