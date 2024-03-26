@@ -15,6 +15,7 @@ class RentalController extends Controller
     function index()
     {
         $rentals = Rental::all();
+
         return view('admin.rentals.index', compact('rentals'));
     }
 

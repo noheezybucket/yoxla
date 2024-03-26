@@ -10,7 +10,7 @@
             <div class="w-full space-y-5 overflow-y-auto">
                 {{-- <div class="shadow-lg border rounded-2xl p-4 font-bold">Bienvenue sur votre dashboard, client</div> --}}
                 <div class="flex justify-between items-center">
-                    <h1 class="font-bold text-2xl">Mes prochaines courses</h1>
+                    <h1 class="font-bold text-2xl">Mes courses</h1>
                     {{-- <a wire:navigate.hover href="{{ route('client.create-rental') }}" class="btn-secondary">Créer une
                         location <x-fas-plus class="icon mr-0" /></a> --}}
                 </div>
@@ -26,10 +26,10 @@
                                 </th>
 
                                 <th class="px-6 py-2 ">
-                                    Nom du client
+                                    Nom du chauffeur
                                 </th>
                                 <th class="px-6 py-2 ">
-                                    N°Téléphone du client
+                                    N°Téléphone du chauffeur
                                 </th>
                                 <th class="px-6 py-2 ">
                                     Date/Heure de début
@@ -38,11 +38,14 @@
                                     Date/Heure de fin
                                 </th>
                                 <th class="px-6 py-2 ">
+                                    Tarif
+                                </th>
+                                <th class="px-6 py-2 ">
                                     Statut
                                 </th>
 
                                 <th class="px-6 py-2 ">
-                                    Actions
+                                    Notes
                                 </th>
 
                             </tr>
@@ -56,11 +59,11 @@
                                     </td>
 
                                     <td class="px-6 py-4">
-                                        {{ $rental->client_fullname }}
+                                        {{ $rental->vehicle->driver->fullname }}
 
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $rental->client_phonenumber }}
+                                        {{ $rental->vehicle->driver->phonenumber }}
 
                                     </td>
                                     <td class="px-6 py-4 ">
@@ -69,26 +72,46 @@
                                     <td class="px-6 py-4 ">
                                         {{ $rental->ending_date }}
                                     </td>
+                                    <td>
+                                        <?php
+                                        $date1 = new DateTime($rental->starting_date);
+                                        $date2 = new DateTime($rental->ending_date);
+                                        $difference = $date1->diff($date2)->days;
+                                        echo $difference * $rental->vehicle->daily_price . ' XOF';
+                                        ?>
+
+                                    </td>
                                     <td class="px-6 py-4 ">
                                         @if ($rental->status === 'pending')
-                                            <span class="bg-red-600 text-white p-3 rounded-2xl w-full">Non payé</span>
+                                            <span class="bg-red-600 text-white p-3 rounded-2xl w-full">Non Payé</span>
                                         @else
                                             <span class="bg-green-600 text-white p-3 rounded-2xl w-full">Payé</span>
                                         @endif
                                     </td>
 
                                     <td class="px-6 py-4 space-x-2 flex items-center justify-center h-full">
-                                        @if ($rental->status === 'pending')
-                                            <form action="{{ route('client.pay-rental-treatment', ['id' => $rental->id]) }}"
+                                        @if ($rental->status !== 'pending' && $rental->vehicle->driver->avg_rating === 0)
+                                            <form
+                                                action="{{ route('client.rate-driver-treatment', ['id' => $rental->id]) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('PUT')
-                                                <input type="hidden" value="{{ $rental->id }}">
+
+                                                <input type="range" max="5" min="1" name="rate">
+                                                {{-- <select name="rate">
+                                                    <option value="1">1/5</option>
+                                                    <option value="2">2/5</option>
+                                                    <option value="3">3/5</option>
+                                                    <option value="4">4/5</option>
+                                                    <option value="5">5/5</option>
+                                                </select> --}}
                                                 <button type="submit"
                                                     class="p-3 text-green-600 bg-green-200 rounded-xl flex justify-center">
-                                                    Payer
+                                                    Soumettre la note
                                                 </button>
                                             </form>
+                                        @elseif($rental->vehicle->driver->avg_rating !== 0)
+                                            <span>{{ $rental->vehicle->driver->avg_rating }}</span>
                                         @else
                                             <span>-</span>
                                         @endif

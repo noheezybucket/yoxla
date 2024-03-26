@@ -1,8 +1,9 @@
 <header class=" py-5 flex justify-between items-center">
-    <div>
+    <div class="flex gap-1">
         <h1 class="text-4xl font-bold text-white  px-2 pb-1 bg-accent1 rounded-2xl">
             yoxlā
         </h1>
+        <h2 class="text-4xl   rounded-2xl">client</h2>
     </div>
 
     {{-- <div class="bg-second flex border  p-1 rounded-full ">

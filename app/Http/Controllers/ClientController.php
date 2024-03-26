@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Driver;
 use App\Models\Rental;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -79,14 +81,20 @@ class ClientController extends Controller
         return redirect()->route('auth.client-login');
     }
 
-    function pay_rental_treatment($id)
+    function rate_driver_treatment(Request $request, $id)
     {
-        $rental = Rental::find($id);
-
-        $rental->update([
-            'status' => 'paid'
+        $request->validate([
+            'rate' => 'required',
         ]);
 
-        return redirect()->route('client.home')->with('status', 'Location payé avec succès');
+        $rental = Rental::find($id);
+        $driver = Driver::find($rental->vehicle->driver_id);
+        // $rate = (int)$request->rate;
+
+        $driver->update([
+            'avg_rating' => $request->rate
+        ]);
+
+        return redirect()->route('client.home')->with('status', 'Chauffeur noté avec succès');
     }
 }

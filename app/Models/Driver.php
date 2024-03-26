@@ -23,7 +23,8 @@ class Driver extends User
         'license_expiration_date',
         'avatar',
         'password',
-        'salary'
+        'salary',
+        'avg_rating'
     ];
 
     protected $casts = [

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Driver;
 use App\Models\Rental;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -143,5 +144,24 @@ class DriverController extends Controller
     {
         Auth::guard('driver')->logout();
         return redirect()->route('auth.driver-login');
+    }
+
+
+    function pay_rental_treatment($id)
+    {
+        $rental = Rental::find($id);
+        $vehicle = Vehicle::find($rental->vehicle_id);
+
+        $vehicle->update([
+            'status' => 'available',
+        ]);
+
+        $rental->update([
+            'status' => 'paid'
+        ]);
+
+
+
+        return redirect()->route('driver.home')->with('status', 'Location payé avec succès');
     }
 }

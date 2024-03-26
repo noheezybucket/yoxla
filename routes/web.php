@@ -81,6 +81,8 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
 
 Route::middleware('driver')->prefix('driver')->name('driver.')->group(function () {
     Route::get('dashboard', [DriverController::class, 'dashboard'])->name('home');
+    Route::put('pay-rental/{id}', [DriverController::class, 'pay_rental_treatment'])->name('pay-rental-treatment');
+
     // logout
     Route::get('logout', [DriverController::class, 'logout'])->name('logout');
 });
@@ -91,7 +93,7 @@ Route::middleware('client')->prefix('client')->name('client.')->group(function (
     Route::get('create-rental', [ClientController::class, 'create_rental'])->name('create-rental');
     Route::post('create-rental', [ClientController::class, 'create_rental_treatment'])->name('create-rental-treatment');
 
-    Route::put('pay-rental/{id}', [ClientController::class, 'pay_rental_treatment'])->name('pay-rental-treatment');
+    Route::put('rate-driver/{id}', [ClientController::class, 'rate_driver_treatment'])->name('rate-driver-treatment');
 
 
     // logout

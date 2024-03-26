@@ -40,6 +40,12 @@
                                                 <th class="px-6 py-2 ">
                                                     Date/Heure de fin
                                                 </th>
+                                                <th class="px-6 py-2 ">
+                                                    Prix
+                                                </th>
+                                                <th class="px-6 py-2 ">
+                                                    Statut
+                                                </th>
 
                                                 <th class="px-6 py-2 ">
                                                     Actions
@@ -66,10 +72,28 @@
 
                                                     </td>
                                                     <td class="px-6 py-4 ">
-                                                        {{ $rental->starting_date }}
+                                                        {{ explode(' ', $rental->starting_date)[0] }}
                                                     </td>
                                                     <td class="px-6 py-4 ">
-                                                        {{ $rental->ending_date }}
+                                                        {{ explode(' ', $rental->ending_date)[0] }}
+                                                    </td>
+                                                    <td>
+                                                        <?php
+                                                        $date1 = new DateTime($rental->starting_date);
+                                                        $date2 = new DateTime($rental->ending_date);
+                                                        $difference = $date1->diff($date2)->days;
+                                                        echo $difference * $rental->vehicle->daily_price . ' XOF';
+                                                        ?>
+
+                                                    </td>
+                                                    <td class="px-6 py-4 ">
+                                                        @if ($rental->status === 'pending')
+                                                            <span class="bg-red-600 text-white p-3 rounded-2xl w-full">Non
+                                                                payé</span>
+                                                        @else
+                                                            <span
+                                                                class="bg-green-600 text-white p-3 rounded-2xl w-full">Payé</span>
+                                                        @endif
                                                     </td>
 
                                                     <td class="px-6 py-4 space-x-2 flex items-center justify-center h-full">
