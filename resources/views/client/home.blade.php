@@ -11,8 +11,8 @@
                 {{-- <div class="shadow-lg border rounded-2xl p-4 font-bold">Bienvenue sur votre dashboard, client</div> --}}
                 <div class="flex justify-between items-center">
                     <h1 class="font-bold text-2xl">Mes courses</h1>
-                    {{-- <a wire:navigate.hover href="{{ route('client.create-rental') }}" class="btn-secondary">Créer une
-                        location <x-fas-plus class="icon mr-0" /></a> --}}
+                    <a wire:navigate.hover href="{{ route('client.create-rental') }}" class="btn-secondary">Créer une
+                        location <x-fas-plus class="icon mr-0" /></a>
                 </div>
                 <div class="">
                     @if (session('status'))

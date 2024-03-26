@@ -22,7 +22,7 @@
     </div>
 
     <div class="flex gap-1">
-        <div><x-fas-power-off class="icon text-red-600" /></div>
-        <a wire:navigate href="{{ route('admin.logout') }}" class="font-light  text-red-600">Déconnexion</a>
+        <div><x-fas-user class="icon rounded-2xl border border-black p-1" /></div>
+        <span wire:navigate class="font-light">{{ auth()->guard('admin')->user()->fullname }}</span>
     </div>
 </header>

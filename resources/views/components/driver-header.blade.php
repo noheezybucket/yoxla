@@ -22,7 +22,7 @@
     </div> --}}
 
     <div class="flex gap-1">
-        <div><x-fas-power-off class="icon text-red-600" /></div>
-        <a wire:navigate href="{{ route('driver.logout') }}" class="font-light  text-red-600">Déconnexion</a>
+        <div><x-fas-user class="icon text-accent2 rounded-2xl  border border-accent2 p-1" /></div>
+        <span wire:navigate class="font-light">{{ auth()->guard('driver')->user()->fullname }}</span>
     </div>
 </header>

@@ -25,7 +25,7 @@ class DriverController extends Controller
             $rentals = Rental::where('vehicle_id', $driver->vehicle->id)->get();
         }
 
-        return view('driver.home', compact('rentals'));
+        return view('driver.home', compact('rentals', 'driver'));
     }
 
     function index()

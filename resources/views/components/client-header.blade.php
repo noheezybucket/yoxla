@@ -20,7 +20,7 @@
         </div>
     </div> --}}
     <div class="flex gap-1">
-        <div><x-fas-power-off class="icon text-red-600" /></div>
-        <a wire:navigate href="{{ route('client.logout') }}" class="font-light  text-red-600">Déconnexion</a>
+        <div><x-fas-user class="icon text-accent1 border border-accent1 p-1 rounded-2xl" /></div>
+        <span wire:navigate class="font-light">{{ auth()->guard('client')->user()->fullname }}</span>
     </div>
 </header>

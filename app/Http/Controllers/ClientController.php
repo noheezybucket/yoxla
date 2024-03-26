@@ -28,12 +28,62 @@ class ClientController extends Controller
             $rentals = Rental::where('client_fullname', $client->fullname)->get();
         }
 
-        return view('client.home', compact('rentals'));
+        return view('client.home', compact('rentals', 'user'));
     }
 
     function create_rental()
     {
-        return view('client.create-rental');
+        $vehicles = Vehicle::all();
+
+        return view('client.create-rental', compact('vehicles'));
+    }
+
+
+    function create_rental_treatment(Request $request)
+    {
+        $request->validate([
+            'vehicle_id' => 'required',
+            'client_fullname' => 'required',
+            'client_phonenumber' => 'required',
+            'client_email' => 'required|email',
+            'client_password' => 'required',
+            'starting_point' => 'required',
+            'ending_point' => 'required',
+            'starting_date' => 'required|date|after_or_equal:today',
+            'ending_date' => 'required|date|after:starting_date',
+        ]);
+
+        $vehicle = Vehicle::find($request->vehicle_id);
+        $client = Client::where('email', $request->client_email)->first();
+
+        if ($client === null) {
+            Client::create([
+                'fullname' => $request->client_fullname,
+                'phonenumber' => $request->client_phonenumber,
+                'email' => $request->client_email,
+                'password' => Hash::make($request->client_password),
+            ]);
+        }
+
+        if ($vehicle) {
+            $vehicle->update([
+                'status' => 'unavailable'
+            ]);
+
+            Rental::create([
+                'vehicle_id' => $request->vehicle_id,
+                'client_fullname' => $request->client_fullname,
+                'client_phonenumber' => $request->client_phonenumber,
+                'starting_point' => $request->starting_point,
+                'ending_point' => $request->ending_point,
+                'starting_date' => $request->starting_date,
+                'ending_date' => $request->ending_date,
+            ]);
+        }
+
+
+
+        return redirect('client/create-rental')->with('status', 'Location créée avec succès');
     }
 
     function client_login_form()

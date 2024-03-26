@@ -3,16 +3,15 @@
 
 @section('content')
     <div class="mx-10">
-        @include('components.admin-header')
+        @include('components.client-header')
 
         <div class="flex gap-5">
-            @include('components.admin-menu')
+            @include('components.client-menu')
             <div class="flex flex-col gap-5  w-full h-[80vh] overflow-y-scroll">
                 <div class="w-3/4 mx-auto p-2 space-y-3">
                     <div class="flex justify-between">
 
-                        <a wire:navigate.hover href="{{ route('admin.rentals') }}"
-                            class="font-bold text-xl flex items-center">
+                        <a wire:navigate.hover href="{{ route('client.home') }}" class="font-bold text-xl flex items-center">
                             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -37,19 +36,19 @@
                                 <div class="form-div w-full">
                                     <label for="client_fullname" class="form-label">Nom complet</label>
                                     <input type="text" id="client_fullname" name="client_fullname" class="form-input"
-                                        value="{{ old('client_fullname') }}">
+                                        value={{ auth()->guard('client')->user()->fullname }}>
                                 </div>
                                 <div class="form-div w-full">
                                     <label for="client_phonenumber" class="form-label">N° Téléphone</label>
                                     <input type="number" id="client_phonenumber" name="client_phonenumber"
-                                        class="form-input" value="{{ old('client_phonenumber') }}">
+                                        class="form-input" value={{ auth()->guard('client')->user()->phonenumber }}>
                                 </div>
                             </div>
                             <div class="form-div-row">
                                 <div class="form-div w-full">
                                     <label for="client_email" class="form-label">Email</label>
                                     <input type="email" id="client_email" name="client_email" class="form-input"
-                                        value="{{ old('client_email') }}">
+                                        value={{ auth()->guard('client')->user()->email }}>
                                 </div>
                                 <div class="form-div">
 
@@ -81,7 +80,7 @@
                                     <option selected>Sélectionner un véhicule à louer</option>
                                     @if (count($vehicles) > 0)
                                         @foreach ($vehicles as $vehicle)
-                                            @if ($vehicle->driver !== null)
+                                            @if ($vehicle->driver !== null && $vehicle->status !== 'breakdown' && $vehicle->status !== 'unavailable')
                                                 <option value="{{ $vehicle->id }}">
 
                                                     {{ $vehicle->driver->fullname }} -
